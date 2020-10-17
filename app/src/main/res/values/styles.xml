@@ -10,7 +10,7 @@
     </style>
 
     <!-- Reference: https://stackoverflow.com/questions/2868047/fullscreen-activity-in-android -->
-    <style name="Base.ProgrammingChallange.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
+    <style name="Base.Theme.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>

@@ -16,7 +16,7 @@ class MovieMVPApp : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MovieMVPApp)
-            modules(repositoryModule, usecaseModule, viewModelModules)
+            modules(listOf(repositoryModule, usecaseModule, viewModelModules))
         }
     }
 
