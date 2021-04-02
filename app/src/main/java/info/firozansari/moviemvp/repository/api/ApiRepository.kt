@@ -7,7 +7,6 @@ import retrofit2.http.Query
 /**
  * The inferface that defines the requests to API.
  * @author Firoz Ansari
- * @since 2018-08-30
  */
 interface ApiRepository {
 

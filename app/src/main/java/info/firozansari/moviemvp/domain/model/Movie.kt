@@ -10,7 +10,6 @@ import kotlinx.android.parcel.Parcelize
  * This data class represents the Movie.
  * The annotations used was the Retrofit and Gson library.
  * @author Firoz Ansari
- * @since 2018-08-30
  */
 @Entity(tableName = "favorite_movies")
 @Parcelize

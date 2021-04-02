@@ -15,7 +15,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  * This is a view that represents the three pages: top rated movies,
  * popular movies, and favorite movies.
  * @author Firoz Ansari
- * @since 2018-08-30
  */
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
