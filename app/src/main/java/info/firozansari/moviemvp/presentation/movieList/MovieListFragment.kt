@@ -90,6 +90,5 @@ class MovieListFragment : Fragment(R.layout.fragment_movies_list) {
                 }
             }
         }
-
     }
 }

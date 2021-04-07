@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import info.firozansari.moviemvp.presentation.components.moviesList.adapter.MoviesListAdapter
 
 class MoviesRecyclerViewComponent @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : RecyclerView(context, attrs, defStyleAttr) {
 
     init {

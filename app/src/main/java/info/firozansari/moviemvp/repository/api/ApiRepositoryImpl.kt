@@ -11,17 +11,17 @@ class ApiRepositoryImpl(private val apiRepository: ApiRepository) : MoviesReposi
 
     override suspend fun getPopularMovies(pageNumber: Int): PageResponse {
         return apiRepository.getMovies(
-                pageNumber = pageNumber,
-                apiKey = ConfigVariables.TOKEN,
-                sortBy = ConfigVariables.PARAMETER_POPULAR_MOVIES
+            pageNumber = pageNumber,
+            apiKey = ConfigVariables.TOKEN,
+            sortBy = ConfigVariables.PARAMETER_POPULAR_MOVIES
         )
     }
 
     override suspend fun getTopRatedMovies(pageNumber: Int): PageResponse {
         return apiRepository.getMovies(
-                pageNumber = pageNumber,
-                apiKey = ConfigVariables.TOKEN,
-                sortBy = ConfigVariables.PARAMETER_TOP_RATED_MOVIES
+            pageNumber = pageNumber,
+            apiKey = ConfigVariables.TOKEN,
+            sortBy = ConfigVariables.PARAMETER_TOP_RATED_MOVIES
         )
     }
 
@@ -30,5 +30,4 @@ class ApiRepositoryImpl(private val apiRepository: ApiRepository) : MoviesReposi
     override suspend fun unFavorite(movie: Movie) = false
 
     override suspend fun checkIsAFavoriteMovie(movie: Movie) = false
-
 }

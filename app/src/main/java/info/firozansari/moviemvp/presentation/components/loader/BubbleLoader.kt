@@ -15,7 +15,7 @@ import info.firozansari.moviemvp.R
 import kotlin.math.roundToInt
 
 class BubbleLoader @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     private val animatorSet = AnimatorSet()
@@ -43,15 +43,19 @@ class BubbleLoader @JvmOverloads constructor(
         return animatorList.toList()
     }
 
-    private fun createAndAddDot(@ColorInt color: Int, dotSize: Int, bubbleLoader: BubbleLoader): View {
+    private fun createAndAddDot(
+        @ColorInt color: Int,
+        dotSize: Int,
+        bubbleLoader: BubbleLoader
+    ): View {
         val dotView = createDot(color = color)
         val layoutSize = dotSize + (dotSize * DOT_EXPANDABLE_PROPORTION).roundToInt()
         bubbleLoader.addView(
-                dotView,
-                LayoutParams(
-                        layoutSize,
-                        layoutSize
-                )
+            dotView,
+            LayoutParams(
+                layoutSize,
+                layoutSize
+            )
         )
         return dotView
     }
@@ -80,8 +84,8 @@ class BubbleLoader @JvmOverloads constructor(
 
     private fun createDot(@ColorInt color: Int): View {
         return DotView(
-                context = context,
-                color = color
+            context = context,
+            color = color
         )
     }
 

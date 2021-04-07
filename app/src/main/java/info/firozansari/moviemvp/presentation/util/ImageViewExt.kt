@@ -8,7 +8,7 @@ import info.firozansari.moviemvp.core.ConfigVariables.BASE_IMAGE_ADDRESS
 fun ImageView.setImagePath(path: String) {
     Glide.with(context).apply {
         load("${BASE_IMAGE_ADDRESS}$path")
-                .error(R.drawable.not_found)
-                .into(this@setImagePath)
+            .error(R.drawable.not_found)
+            .into(this@setImagePath)
     }
 }

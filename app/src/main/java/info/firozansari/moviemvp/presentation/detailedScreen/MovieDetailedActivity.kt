@@ -24,12 +24,12 @@ class MovieDetailedActivity : AppCompatActivity(R.layout.activity_movie_detailed
         getMovieFromIntentOrViewModel()?.let { movie ->
             viewModel.setup(movie)
             viewModel.onFavoriteMovieEvent.observe(
-                    this@MovieDetailedActivity,
-                    Observer {
-                        viewModel.getMovie()?.isFavorite?.let {
-                            changeFavoriteViewsState(it)
-                        }
+                this@MovieDetailedActivity,
+                Observer {
+                    viewModel.getMovie()?.isFavorite?.let {
+                        changeFavoriteViewsState(it)
                     }
+                }
             )
             setView(movie)
         } ?: finish()
@@ -59,8 +59,8 @@ class MovieDetailedActivity : AppCompatActivity(R.layout.activity_movie_detailed
     private fun changeFavoriteViewsState(isFavorite: Boolean) {
         ivFavoriteOption.show(true)
         ivFavoriteOption.setImageResource(
-                if (isFavorite) R.drawable.ic_heart_filled
-                else R.drawable.ic_heart_border
+            if (isFavorite) R.drawable.ic_heart_filled
+            else R.drawable.ic_heart_border
         )
     }
 
@@ -81,14 +81,14 @@ class MovieDetailedActivity : AppCompatActivity(R.layout.activity_movie_detailed
          */
         fun startActivity(context: Activity, movie: Movie, ivImageShared: View) {
             context.startActivity(
-                    Intent(context, MovieDetailedActivity::class.java).apply {
-                        putExtra(MOVIE_INTENT_KEY, movie)
-                    },
-                    ActivityOptionsCompat.makeSceneTransitionAnimation(
-                            context,
-                            ivImageShared,
-                            context.resources.getString(R.string.transition_name)
-                    ).toBundle()
+                Intent(context, MovieDetailedActivity::class.java).apply {
+                    putExtra(MOVIE_INTENT_KEY, movie)
+                },
+                ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    context,
+                    ivImageShared,
+                    context.resources.getString(R.string.transition_name)
+                ).toBundle()
             )
         }
     }

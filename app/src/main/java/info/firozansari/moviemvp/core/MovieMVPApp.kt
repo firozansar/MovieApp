@@ -19,5 +19,4 @@ class MovieMVPApp : Application() {
             modules(listOf(repositoryModule, usecaseModule, viewModelModules))
         }
     }
-
 }

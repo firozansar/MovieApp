@@ -15,9 +15,9 @@ import kotlinx.coroutines.launch
 import java.util.concurrent.locks.ReentrantLock
 
 class MovieListViewModel(
-        private val favoriteMoviesUseCase: FavoriteMoviesUseCase,
-        private val topRatedMoviesUseCase: TopRatedMoviesUseCase,
-        private val popularMoviesUseCase: PopularMoviesUseCase
+    private val favoriteMoviesUseCase: FavoriteMoviesUseCase,
+    private val topRatedMoviesUseCase: TopRatedMoviesUseCase,
+    private val popularMoviesUseCase: PopularMoviesUseCase
 ) : ViewModel() {
 
     private val moviesList = ArrayList<Movie>()
@@ -94,5 +94,4 @@ class MovieListViewModel(
     companion object {
         const val FIRST_PAGE = 1
     }
-
 }

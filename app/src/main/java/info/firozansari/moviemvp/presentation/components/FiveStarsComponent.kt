@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.component_five_stars.view.*
 import kotlin.math.roundToInt
 
 class FiveStarsComponent @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     init {
@@ -40,11 +40,26 @@ class FiveStarsComponent @JvmOverloads constructor(
     fun setVotesAvg(votes: Float) {
         val numberOfStarts = (votes / AVERAGE_TOTAL) * STARS_AVAILABLE
         if (votes != INVALID_NUMBER) {
-            ivFirstStar.background = ContextCompat.getDrawable(context, getDrawableAccordingToStarPosition(numberOfStarts, 1))
-            ivSecondStar.background = ContextCompat.getDrawable(context, getDrawableAccordingToStarPosition(numberOfStarts, 2))
-            ivThirdStar.background = ContextCompat.getDrawable(context, getDrawableAccordingToStarPosition(numberOfStarts, 3))
-            ivFourthStar.background = ContextCompat.getDrawable(context, getDrawableAccordingToStarPosition(numberOfStarts, 4))
-            ivFifthStar.background = ContextCompat.getDrawable(context, getDrawableAccordingToStarPosition(numberOfStarts, 5))
+            ivFirstStar.background = ContextCompat.getDrawable(
+                context,
+                getDrawableAccordingToStarPosition(numberOfStarts, 1)
+            )
+            ivSecondStar.background = ContextCompat.getDrawable(
+                context,
+                getDrawableAccordingToStarPosition(numberOfStarts, 2)
+            )
+            ivThirdStar.background = ContextCompat.getDrawable(
+                context,
+                getDrawableAccordingToStarPosition(numberOfStarts, 3)
+            )
+            ivFourthStar.background = ContextCompat.getDrawable(
+                context,
+                getDrawableAccordingToStarPosition(numberOfStarts, 4)
+            )
+            ivFifthStar.background = ContextCompat.getDrawable(
+                context,
+                getDrawableAccordingToStarPosition(numberOfStarts, 5)
+            )
         }
     }
 
@@ -53,5 +68,4 @@ class FiveStarsComponent @JvmOverloads constructor(
         private const val AVERAGE_TOTAL = 10
         private const val INVALID_NUMBER = -1f
     }
-
 }

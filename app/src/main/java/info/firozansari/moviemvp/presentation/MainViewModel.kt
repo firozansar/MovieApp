@@ -2,7 +2,7 @@ package info.firozansari.moviemvp.presentation
 
 import androidx.lifecycle.ViewModel
 
-class MainViewModel: ViewModel() {
+class MainViewModel : ViewModel() {
 
     private var selectedPage = TOP_RATED_PAGE
 

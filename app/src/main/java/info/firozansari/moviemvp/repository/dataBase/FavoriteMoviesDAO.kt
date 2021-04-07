@@ -20,5 +20,4 @@ interface FavoriteMoviesDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveFavorite(movie: Movie)
-
 }

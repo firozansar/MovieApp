@@ -34,9 +34,8 @@ class DataBaseRepositoryImpl(private val favoriteDao: FavoriteMoviesDAO) : Movie
 
     override suspend fun checkIsAFavoriteMovie(movie: Movie): Boolean {
         return favoriteDao.isThereAMovie(
-                title = movie.title,
-                originalTitle = movie.originalTitle
+            title = movie.title,
+            originalTitle = movie.originalTitle
         ).isNotEmpty()
     }
-
 }

@@ -18,8 +18,8 @@ interface ApiRepository {
      */
     @GET("discover/movie")
     suspend fun getMovies(
-            @Query("api_key") apiKey: String,
-            @Query("sort_by") sortBy: String,
-            @Query("page") pageNumber: Int
+        @Query("api_key") apiKey: String,
+        @Query("sort_by") sortBy: String,
+        @Query("page") pageNumber: Int
     ): PageResponse
 }

@@ -18,7 +18,10 @@ class MoviesListAdapter : RecyclerView.Adapter<MoviesListAdapter.MovieViewHolder
     private val elements = ArrayList<MovieData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        return MovieViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_holder_movie_card, parent, false))
+        return MovieViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.view_holder_movie_card, parent, false)
+        )
     }
 
     override fun getItemCount() = elements.size
@@ -40,7 +43,7 @@ class MoviesListAdapter : RecyclerView.Adapter<MoviesListAdapter.MovieViewHolder
     fun setup(movieDataList: List<Movie>) {
         elements.clear()
         elements.addAll(
-                movieDataList.mapToElements()
+            movieDataList.mapToElements()
         )
         notifyDataSetChanged()
     }
@@ -48,7 +51,7 @@ class MoviesListAdapter : RecyclerView.Adapter<MoviesListAdapter.MovieViewHolder
     fun update(newElements: List<Movie>) {
         val previousSize = elements.size
         elements.addAll(
-                newElements.mapToElements()
+            newElements.mapToElements()
         )
         notifyItemRangeInserted(previousSize, newElements.size)
     }
@@ -58,7 +61,8 @@ class MoviesListAdapter : RecyclerView.Adapter<MoviesListAdapter.MovieViewHolder
         private val ivPoster: ImageView? = view.findViewById(R.id.ivPoster)
         private val tvTitle: TextView? = view.findViewById(R.id.tvTitle)
         private val tvReleaseDate: TextView? = view.findViewById(R.id.tvReleaseDate)
-        private val fiveStarsComponent: FiveStarsComponent? = view.findViewById(R.id.fiveStarsComponent)
+        private val fiveStarsComponent: FiveStarsComponent? =
+            view.findViewById(R.id.fiveStarsComponent)
 
         fun bind(data: MovieData) {
             ivPoster?.setImagePath(data.posterPath)
@@ -83,11 +87,11 @@ class MoviesListAdapter : RecyclerView.Adapter<MoviesListAdapter.MovieViewHolder
 fun List<Movie>.mapToElements(): List<MovieData> {
     return this.map { movie ->
         MovieData(
-                posterPath = movie.posterPath,
-                movieTitle = movie.title,
-                releaseDate = movie.releaseDate,
-                votes = movie.votesAverage,
-                movieReference = movie
+            posterPath = movie.posterPath,
+            movieTitle = movie.title,
+            releaseDate = movie.releaseDate,
+            votes = movie.votesAverage,
+            movieReference = movie
         )
     }
 }

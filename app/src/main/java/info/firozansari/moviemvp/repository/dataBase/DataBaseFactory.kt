@@ -8,5 +8,4 @@ import info.firozansari.moviemvp.domain.model.Movie
 abstract class DataBaseFactory : RoomDatabase() {
 
     abstract fun favoriteMoviesDAO(): FavoriteMoviesDAO
-
 }

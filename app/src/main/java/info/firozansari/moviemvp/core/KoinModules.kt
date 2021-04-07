@@ -1,7 +1,10 @@
 package info.firozansari.moviemvp.core
 
 import androidx.room.Room
-import info.firozansari.moviemvp.domain.usecase.*
+import info.firozansari.moviemvp.domain.usecase.FavoriteMovieUseCase
+import info.firozansari.moviemvp.domain.usecase.FavoriteMoviesUseCase
+import info.firozansari.moviemvp.domain.usecase.PopularMoviesUseCase
+import info.firozansari.moviemvp.domain.usecase.TopRatedMoviesUseCase
 import info.firozansari.moviemvp.presentation.MainViewModel
 import info.firozansari.moviemvp.presentation.detailedScreen.MovieDetailedViewModel
 import info.firozansari.moviemvp.presentation.movieList.MovieListViewModel
@@ -20,32 +23,31 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-
 val repositoryModule = module {
     single {
         ApiRepositoryImpl(
-                Retrofit.Builder()
-                        .baseUrl(ConfigVariables.BASE_URL)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .client(
-                                OkHttpClient.Builder()
-                                        .connectTimeout(15, TimeUnit.SECONDS)
-                                        .readTimeout(15, TimeUnit.SECONDS)
-                                        .addInterceptor(LoggedInterceptor())
-                                        .build()
-                        )
+            Retrofit.Builder()
+                .baseUrl(ConfigVariables.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(
+                    OkHttpClient.Builder()
+                        .connectTimeout(15, TimeUnit.SECONDS)
+                        .readTimeout(15, TimeUnit.SECONDS)
+                        .addInterceptor(LoggedInterceptor())
                         .build()
-                        .create(ApiRepository::class.java)
+                )
+                .build()
+                .create(ApiRepository::class.java)
         )
     } bind MoviesRepository::class
 
     single {
         DataBaseRepositoryImpl(
-                Room.databaseBuilder(
-                        androidContext(),
-                        DataBaseFactory::class.java,
-                        ConfigVariables.DATABASE_NAME
-                ).build().favoriteMoviesDAO()
+            Room.databaseBuilder(
+                androidContext(),
+                DataBaseFactory::class.java,
+                ConfigVariables.DATABASE_NAME
+            ).build().favoriteMoviesDAO()
         )
     } bind MoviesRepository::class
 }
