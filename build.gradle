@@ -15,6 +15,7 @@ buildscript {
         mockwebserver = "3.8.1"
         timberVersion = '4.7.1'
         stethoVersion = '1.5.1'
+        robolectricVersion = '4.3'
     }
     repositories {
         google()

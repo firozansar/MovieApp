@@ -42,11 +42,13 @@ android {
     kapt {
         correctErrorTypes true
     }
-
     dataBinding {
         enabled true
     }
-
+    sourceSets {
+        androidTest.java.srcDirs += "src/test-common/java"
+        test.java.srcDirs += "src/test-common/java"
+    }
 }
 
 dependencies {
@@ -104,7 +106,8 @@ dependencies {
     testImplementation("com.google.truth:truth:0.42")
     testImplementation("androidx.test:core:1.2.0")
     testImplementation("org.mockito:mockito-core:2.27.0")
-    testImplementation("org.koin:koin-test:2.1.5")
+
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
 
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.1")
