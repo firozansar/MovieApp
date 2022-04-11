@@ -20,5 +20,5 @@ interface MovieApi {
         @Query("api_key") apiKey: String,
         @Query("sort_by") sortBy: String,
         @Query("page") pageNumber: Int
-    ): info.firozansari.movieapp.data.api.response.PageResponse
+    ): PageResponse
 }
