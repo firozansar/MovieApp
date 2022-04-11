@@ -205,7 +205,7 @@
                 android:visibility="gone"
                 tools:visibility="visible" />
 
-            <info.firozansari.moviemvp.presentation.components.FiveStarsComponent
+            <info.firozansari.movieapp.presentation.components.FiveStarsComponent
                 android:id="@+id/fiveStarsComponent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

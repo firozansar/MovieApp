@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <info.firozansari.moviemvp.presentation.components.moviesList.MoviesRecyclerViewComponent
+        <info.firozansari.movieapp.presentation.components.moviesList.MoviesRecyclerViewComponent
             android:id="@+id/rvList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="@string/error_message" />
 
-    <info.firozansari.moviemvp.presentation.components.loader.BubbleLoader
+    <info.firozansari.movieapp.presentation.components.loader.BubbleLoader
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
