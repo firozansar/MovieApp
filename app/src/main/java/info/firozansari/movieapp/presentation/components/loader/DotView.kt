@@ -8,20 +8,22 @@ import android.view.View
 import androidx.annotation.ColorInt
 
 class DotView @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+  context: Context,
+  attrs: AttributeSet? = null,
+  defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
-    private val paint = Paint()
+  private val paint = Paint()
 
-    constructor(context: Context, @ColorInt color: Int) : this(
-        context,
-        null
-    ) {
-        this.paint.color = color
-    }
+  constructor(context: Context, @ColorInt color: Int) : this(
+    context,
+    null
+  ) {
+    this.paint.color = color
+  }
 
-    override fun onDraw(canvas: Canvas?) {
-        val radius = width / 2f
-        canvas?.drawCircle(radius, radius, radius / 2, paint)
-    }
+  override fun onDraw(canvas: Canvas?) {
+    val radius = width / 2f
+    canvas?.drawCircle(radius, radius, radius / 2, paint)
+  }
 }

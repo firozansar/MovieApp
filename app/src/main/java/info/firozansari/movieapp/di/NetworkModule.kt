@@ -16,33 +16,32 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    @Provides
-    @Singleton
-    fun okhttpClient(): OkHttpClient {
-        val httpLoggingInterceptor =
-            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-        return OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build()
-    }
+  @Provides
+  @Singleton
+  fun okhttpClient(): OkHttpClient {
+    val httpLoggingInterceptor =
+      HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+    return OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build()
+  }
 
-    @Provides
-    @Singleton
-    fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(Config.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(
-                OkHttpClient.Builder()
-                    .connectTimeout(15, TimeUnit.SECONDS)
-                    .readTimeout(15, TimeUnit.SECONDS)
-                    .addInterceptor(info.firozansari.movieapp.data.api.LoggedInterceptor())
-                    .build()
-            )
-            .build()
-    }
+  @Provides
+  @Singleton
+  fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    return Retrofit.Builder()
+      .baseUrl(Config.BASE_URL)
+      .addConverterFactory(GsonConverterFactory.create())
+      .client(
+        OkHttpClient.Builder()
+          .connectTimeout(15, TimeUnit.SECONDS)
+          .readTimeout(15, TimeUnit.SECONDS)
+          .addInterceptor(info.firozansari.movieapp.data.api.LoggedInterceptor())
+          .build()
+      )
+      .build()
+  }
 
-    @Provides
-    @Singleton
-    fun providesApiService(retrofit: Retrofit) =
-        retrofit.create(info.firozansari.movieapp.data.api.MovieApi::class.java)
-
+  @Provides
+  @Singleton
+  fun providesApiService(retrofit: Retrofit) =
+    retrofit.create(info.firozansari.movieapp.data.api.MovieApi::class.java)
 }

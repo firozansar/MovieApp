@@ -19,8 +19,8 @@ class MockTestUtil {
           backdropPath = "/iQFcwSGbZXMkeyKrxbPnwnRo5fl.jpg",
           isAdult = false,
           overview = "Peter Parker is unmasked and no longer able to separate his normal life from " +
-              "the high-stakes of being a super-hero. When he asks for help from Doctor Strange the " +
-              "stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+            "the high-stakes of being a super-hero. When he asks for help from Doctor Strange the " +
+            "stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
           releaseDate = "2021-12-15",
           isFavorite = false
         )

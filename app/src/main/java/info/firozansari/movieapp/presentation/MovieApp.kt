@@ -13,13 +13,13 @@ import timber.log.Timber
 @HiltAndroidApp
 open class MovieApp : Application() {
 
-    override fun onCreate() {
-        super.onCreate()
+  override fun onCreate() {
+    super.onCreate()
 
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
-        }
-
-        Stetho.initializeWithDefaults(this)
+    if (BuildConfig.DEBUG) {
+      Timber.plant(Timber.DebugTree())
     }
+
+    Stetho.initializeWithDefaults(this)
+  }
 }

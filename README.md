@@ -22,6 +22,3 @@ tmdb_api_key=YOUR_API_KEY
 - [OkHttp3](https://github.com/square/okhttp) - implementing interceptor, logging and mocking web server
 - [Timber](https://github.com/JakeWharton/timber) - logging
 - [Stetho](https://github.com/facebook/stetho) - debugging persistence data & network packets
-
-
-

@@ -16,6 +16,8 @@ buildscript {
         timberVersion = '4.7.1'
         stethoVersion = '1.5.1'
         robolectricVersion = '4.3'
+        // plugins
+        spotlessVersion = '5.14.0'
     }
     repositories {
         google()
@@ -25,6 +27,32 @@ buildscript {
         classpath 'com.android.tools.build:gradle:7.1.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.41'
+        classpath "com.diffplug.spotless:spotless-plugin-gradle:$spotlessVersion"
+    }
+}
+
+plugins {
+
+    id "com.diffplug.spotless" version "5.14.0"
+}
+spotless {
+
+    format 'misc', {
+        // define the files to apply `misc` to
+        target '**/*.gradle', '**/*.md', '**/.gitignore'
+
+        // define the steps to apply to those files
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+
+    kotlin {
+        target "**/*.kt"
+        ktlint('0.41.0').userData(['indent_size': '2', 'continuation_indent_size': '2'])
+        trimTrailingWhitespace()
+        indentWithSpaces()
+        endWithNewline()
     }
 }
 
@@ -33,8 +61,4 @@ allprojects {
         google()
         mavenCentral()
     }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }

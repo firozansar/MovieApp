@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class FavoriteMoviesUseCase @Inject constructor(private val repository: MoviesRepository) {
 
-    suspend fun execute(): List<Movie> {
-        return repository.getFavoriteMovies()
-    }
+  suspend fun execute(): List<Movie> {
+    return repository.getFavoriteMovies()
+  }
 }
