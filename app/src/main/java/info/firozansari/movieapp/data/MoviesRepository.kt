@@ -1,5 +1,6 @@
 package info.firozansari.movieapp.data
 
+import info.firozansari.movieapp.BuildConfig
 import info.firozansari.movieapp.data.api.MovieApi
 import info.firozansari.movieapp.data.api.response.PageResponse
 import info.firozansari.movieapp.data.db.FavoriteMoviesDAO
@@ -18,7 +19,7 @@ class MoviesRepository constructor(
     suspend fun getPopularMovies(pageNumber: Int): PageResponse {
         return movieApi.getMovies(
             pageNumber = pageNumber,
-            apiKey = Config.TOKEN,
+            apiKey = BuildConfig.TMDB_API_KEY,
             sortBy = Config.PARAMETER_POPULAR_MOVIES
         )
     }
@@ -26,7 +27,7 @@ class MoviesRepository constructor(
     suspend fun getTopRatedMovies(pageNumber: Int): PageResponse {
         return movieApi.getMovies(
             pageNumber = pageNumber,
-            apiKey = Config.TOKEN,
+            apiKey = BuildConfig.TMDB_API_KEY,
             sortBy = Config.PARAMETER_TOP_RATED_MOVIES
         )
     }

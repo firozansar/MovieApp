@@ -4,17 +4,25 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'kotlin-android-extensions'
 
+def localProperties = new Properties()
+def localPropertiesFile = project.rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localProperties.load(localPropertiesFile.newInputStream())
+}
+
 android {
     compileSdkVersion 31
 
     defaultConfig {
-        applicationId "info.firozansari.moviemvp"
+        applicationId "info.firozansari.movieapp"
         minSdkVersion 26
         targetSdkVersion 31
         versionCode 2
         versionName "1.1"
+        buildConfigField("String","TMDB_API_KEY", localProperties.getProperty("tmdb_api_key") ?: "\"\"")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -31,6 +39,9 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
+    kapt {
+        correctErrorTypes true
+    }
 
     dataBinding {
         enabled true
@@ -41,9 +52,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01"
 
     // Navigation Component
@@ -75,12 +86,8 @@ dependencies {
     // hilt
     implementation 'com.google.dagger:hilt-android:2.41'
     kapt 'com.google.dagger:hilt-compiler:2.41'
-
-    // For instrumentation tests
     androidTestImplementation  'com.google.dagger:hilt-android-testing:2.41'
     kaptAndroidTest 'com.google.dagger:hilt-compiler:2.41'
-
-    // For local unit tests
     testImplementation 'com.google.dagger:hilt-android-testing:2.41'
     kaptTest 'com.google.dagger:hilt-compiler:2.41'
 
@@ -105,6 +112,3 @@ dependencies {
     androidTestImplementation("com.google.truth:truth:0.42")
 }
 
-kapt {
-    correctErrorTypes true
-}
