@@ -1,7 +1,7 @@
 # Movie app
 A simple project using [The Movie DB](https://www.themoviedb.org) based on Kotlin MVVM architecture and material designs.<br>
 
-<img src="static/Screenshot_1.png" width="500" />
+<img src="static/Screenshot_2.png" width="500" />
 
 ## How to build on your environment
 Add your [The Movie DB](https://www.themoviedb.org)'s API key in your `local.properties` file.
