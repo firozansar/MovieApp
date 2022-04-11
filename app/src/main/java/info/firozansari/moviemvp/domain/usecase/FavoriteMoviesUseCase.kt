@@ -1,7 +1,7 @@
 package info.firozansari.moviemvp.domain.usecase
 
 import info.firozansari.moviemvp.domain.model.Movie
-import info.firozansari.moviemvp.repository.MoviesRepository
+import info.firozansari.moviemvp.data.MoviesRepository
 
 class FavoriteMoviesUseCase(val repository: MoviesRepository) {
 

@@ -1,4 +1,4 @@
-package info.firozansari.moviemvp.repository.dataBase
+package info.firozansari.moviemvp.data.db
 
 import androidx.room.Dao
 import androidx.room.Insert

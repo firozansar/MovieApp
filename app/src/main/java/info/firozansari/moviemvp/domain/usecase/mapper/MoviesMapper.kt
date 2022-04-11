@@ -2,8 +2,8 @@ package info.firozansari.moviemvp.domain.usecase.mapper
 
 import info.firozansari.moviemvp.domain.model.Movie
 import info.firozansari.moviemvp.domain.model.Page
-import info.firozansari.moviemvp.repository.api.response.MovieResponse
-import info.firozansari.moviemvp.repository.api.response.PageResponse
+import info.firozansari.moviemvp.data.api.response.MovieResponse
+import info.firozansari.moviemvp.data.api.response.PageResponse
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Locale

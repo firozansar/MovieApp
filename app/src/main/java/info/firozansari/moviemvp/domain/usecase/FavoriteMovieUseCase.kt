@@ -1,7 +1,7 @@
 package info.firozansari.moviemvp.domain.usecase
 
 import info.firozansari.moviemvp.domain.model.Movie
-import info.firozansari.moviemvp.repository.MoviesRepository
+import info.firozansari.moviemvp.data.MoviesRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

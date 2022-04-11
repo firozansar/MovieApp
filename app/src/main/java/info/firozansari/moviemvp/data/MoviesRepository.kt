@@ -1,7 +1,7 @@
-package info.firozansari.moviemvp.repository
+package info.firozansari.moviemvp.data
 
 import info.firozansari.moviemvp.domain.model.Movie
-import info.firozansari.moviemvp.repository.api.response.PageResponse
+import info.firozansari.moviemvp.data.api.response.PageResponse
 
 interface MoviesRepository {
 

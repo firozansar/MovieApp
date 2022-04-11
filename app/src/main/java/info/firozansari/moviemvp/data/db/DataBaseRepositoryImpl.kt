@@ -1,8 +1,8 @@
-package info.firozansari.moviemvp.repository.dataBase
+package info.firozansari.moviemvp.data.db
 
 import info.firozansari.moviemvp.domain.model.Movie
-import info.firozansari.moviemvp.repository.MoviesRepository
-import info.firozansari.moviemvp.repository.api.response.PageResponse
+import info.firozansari.moviemvp.data.MoviesRepository
+import info.firozansari.moviemvp.data.api.response.PageResponse
 
 class DataBaseRepositoryImpl(private val favoriteDao: FavoriteMoviesDAO) : MoviesRepository {
 

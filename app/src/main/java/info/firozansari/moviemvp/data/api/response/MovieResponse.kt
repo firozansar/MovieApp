@@ -1,4 +1,4 @@
-package info.firozansari.moviemvp.repository.api.response
+package info.firozansari.moviemvp.data.api.response
 
 import com.google.gson.annotations.SerializedName
 

@@ -3,7 +3,7 @@ package info.firozansari.moviemvp.presentation.util
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import info.firozansari.moviemvp.R
-import info.firozansari.moviemvp.core.ConfigVariables.BASE_IMAGE_ADDRESS
+import info.firozansari.moviemvp.presentation.Config.BASE_IMAGE_ADDRESS
 
 fun ImageView.setImagePath(path: String) {
     Glide.with(context).apply {

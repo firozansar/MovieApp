@@ -1,4 +1,4 @@
-package info.firozansari.moviemvp.repository.api
+package info.firozansari.moviemvp.data.api
 
 import android.util.Log
 import okhttp3.Interceptor
