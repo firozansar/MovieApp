@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class PopularMoviesUseCase @Inject constructor(private val repository: MoviesRepository) {
 
-  suspend fun execute(pageNumber: Int): Page? {
-    return MoviesMapper.mapToPage(repository.getPopularMovies(pageNumber))
-  }
+    suspend fun execute(pageNumber: Int): Page? {
+        return MoviesMapper.mapToPage(repository.getPopularMovies(pageNumber))
+    }
 }

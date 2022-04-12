@@ -13,12 +13,12 @@ import info.firozansari.movieapp.data.db.FavoriteMoviesDAO
 @InstallIn(ViewModelComponent::class)
 object RepositoryModule {
 
-  @Provides
-  @ViewModelScoped
-  fun provideMoviesRepository(
-    movieApi: MovieApi,
-    favoriteDao: FavoriteMoviesDAO
-  ): MoviesRepository {
-    return MoviesRepository(movieApi, favoriteDao)
-  }
+    @Provides
+    @ViewModelScoped
+    fun provideMoviesRepository(
+        movieApi: MovieApi,
+        favoriteDao: FavoriteMoviesDAO
+    ): MoviesRepository {
+        return MoviesRepository(movieApi, favoriteDao)
+    }
 }

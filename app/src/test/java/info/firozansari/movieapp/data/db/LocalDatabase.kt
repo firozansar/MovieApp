@@ -9,17 +9,17 @@ import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
 abstract class LocalDatabase {
-  lateinit var db: AppDatabase
+    lateinit var db: AppDatabase
 
-  @Before
-  fun initDB() {
-    db = Room.inMemoryDatabaseBuilder(getApplicationContext(), AppDatabase::class.java)
-      .allowMainThreadQueries()
-      .build()
-  }
+    @Before
+    fun initDB() {
+        db = Room.inMemoryDatabaseBuilder(getApplicationContext(), AppDatabase::class.java)
+            .allowMainThreadQueries()
+            .build()
+    }
 
-  @After
-  fun closeDB() {
-    db.close()
-  }
+    @After
+    fun closeDB() {
+        db.close()
+    }
 }
