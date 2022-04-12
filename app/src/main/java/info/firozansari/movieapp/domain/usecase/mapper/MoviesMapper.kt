@@ -15,7 +15,7 @@ object MoviesMapper {
 
     fun mapToPage(response: PageResponse?): Page? {
         return response?.let { pageResponse ->
-            val movies = pageResponse.results?.filter { it.originalLanguage == "en" } ?: emptyList()
+            val movies = pageResponse.results?.filter { it.originalLanguage == "en"} ?: emptyList()
             Page(
                 movies = movies.map {
                     mapToMovie(it)

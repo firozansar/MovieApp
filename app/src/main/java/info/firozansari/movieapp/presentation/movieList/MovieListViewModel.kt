@@ -15,6 +15,7 @@ import java.util.concurrent.locks.ReentrantLock
 import javax.inject.Inject
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @HiltViewModel
 class MovieListViewModel @Inject constructor(
@@ -52,7 +53,7 @@ class MovieListViewModel @Inject constructor(
                         MovieListType.TopRated -> {
                             topRatedMoviesUseCase.execute(currentPage)?.also {
                                 hasMorePages = it.hasMorePages
-                            }?.movies
+                            }?.movies?.sortedByDescending { it.votesAverage }
                         }
                         MovieListType.Popular -> {
                             popularMoviesUseCase.execute(currentPage)?.also {
@@ -74,7 +75,7 @@ class MovieListViewModel @Inject constructor(
                         }
                     }
                 } catch (exception: Exception) {
-                    Log.e("ERROR", exception.message ?: "--")
+                    Timber.e( exception.message ?: "--")
                     onMoviesListReceived.postValue(ViewModelResult.Error)
                 }
             }
