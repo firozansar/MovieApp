@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 
 def localProperties = new Properties()
 def localPropertiesFile = project.rootProject.file('local.properties')
@@ -44,6 +44,9 @@ android {
     }
     dataBinding {
         enabled true
+    }
+    buildFeatures {
+        viewBinding true
     }
     sourceSets {
         androidTest.java.srcDirs += "src/test-common/java"
