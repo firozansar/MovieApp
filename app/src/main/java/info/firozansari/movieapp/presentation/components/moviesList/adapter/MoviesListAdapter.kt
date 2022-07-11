@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import info.firozansari.movieapp.R
 import info.firozansari.movieapp.domain.model.Movie
+import info.firozansari.movieapp.presentation.Config
 import info.firozansari.movieapp.presentation.components.FiveStarsComponent
 import info.firozansari.movieapp.presentation.detail.MovieDetailedActivity
 import info.firozansari.movieapp.presentation.util.setImagePath
@@ -65,7 +67,7 @@ class MoviesListAdapter : RecyclerView.Adapter<MoviesListAdapter.MovieViewHolder
             view.findViewById(R.id.fiveStarsComponent)
 
         fun bind(data: MovieData) {
-            ivPoster?.setImagePath(data.posterPath)
+            ivPoster?.load("${Config.TMDB_IMAGE_BASE_URL_W780}${data.posterPath}")
             tvTitle?.text = data.movieTitle
             tvReleaseDate?.text = data.releaseDate
             fiveStarsComponent?.setVotesAvg(data.votes)

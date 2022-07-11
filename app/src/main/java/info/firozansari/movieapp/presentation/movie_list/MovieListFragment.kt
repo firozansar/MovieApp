@@ -11,10 +11,7 @@ import info.firozansari.movieapp.domain.model.MovieListType
 import info.firozansari.movieapp.domain.model.convertToMovieListType
 import info.firozansari.movieapp.presentation.util.ViewModelResult
 import info.firozansari.movieapp.presentation.util.show
-import kotlinx.android.synthetic.main.fragment_movies_list.progressBar
-import kotlinx.android.synthetic.main.fragment_movies_list.rvList
-import kotlinx.android.synthetic.main.fragment_movies_list.swRefreshLayout
-import kotlinx.android.synthetic.main.fragment_movies_list.tvError
+
 
 @AndroidEntryPoint
 class MovieListFragment : Fragment(R.layout.fragment_movies_list) {

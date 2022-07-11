@@ -28,16 +28,16 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        vwPagerComponent.adapter = object :
-            FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-            override fun getCount(): Int {
-                return fragmentsList.size
-            }
-
-            override fun getItem(position: Int): Fragment {
-                return fragmentsList[position]
-            }
-        }
+//        vwPagerComponent.adapter = object :
+//            FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+//            override fun getCount(): Int {
+//                return fragmentsList.size
+//            }
+//
+//            override fun getItem(position: Int): Fragment {
+//                return fragmentsList[position]
+//            }
+//        }
 
 //        vwPagerComponent.currentItem = mainViewModel.getPage()
 //        vwPagerComponent.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {

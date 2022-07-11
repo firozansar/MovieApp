@@ -98,9 +98,12 @@ dependencies {
     testImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
     kaptTest "com.google.dagger:hilt-compiler:$hilt_version"
 
-    // Image loading and caching
-    implementation "com.github.bumptech.glide:glide:$glide_version"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    // Moshi
+    api "com.squareup.moshi:moshi:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+
+    // Coil for image loading
+    implementation "io.coil-kt:coil:$coil_version"
 
     // Jetpack paging 3
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"

@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.datasource.remote.models.responses.MovieResult
-import com.example.movieland.databinding.ItemAccountMediaPosterBinding
-import com.example.movieland.utils.Constants.TMDB_POSTER_IMAGE_BASE_URL_W342
+import info.firozansari.movieapp.databinding.ItemAccountMediaPosterBinding
 import com.example.movieland.utils.showSnackBar
 import com.google.android.material.snackbar.Snackbar
+import info.firozansari.movieapp.domain.model.responses.MovieResult
+import info.firozansari.movieapp.presentation.Config.TMDB_POSTER_IMAGE_BASE_URL_W342
 
 class AccountMediaAdapter(
     private var onPosterClick: ((movieResult: MovieResult) -> Unit)? = null,

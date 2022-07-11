@@ -9,18 +9,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.Observer
+import coil.load
 import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
 import info.firozansari.movieapp.domain.model.Movie
-import info.firozansari.movieapp.presentation.util.setImagePath
+import info.firozansari.movieapp.presentation.Config
 import info.firozansari.movieapp.presentation.util.show
-import kotlinx.android.synthetic.main.activity_movie_detailed.backdrop
-import kotlinx.android.synthetic.main.activity_movie_detailed.fiveStarsComponent
-import kotlinx.android.synthetic.main.activity_movie_detailed.ivFavoriteOption
-import kotlinx.android.synthetic.main.activity_movie_detailed.tvLanguage
-import kotlinx.android.synthetic.main.activity_movie_detailed.tvOriginalTitle
-import kotlinx.android.synthetic.main.activity_movie_detailed.tvOverview
-import kotlinx.android.synthetic.main.activity_movie_detailed.tvPopularity
+
 
 @AndroidEntryPoint
 class MovieDetailedActivity : AppCompatActivity(R.layout.activity_movie_detailed) {
@@ -52,7 +47,7 @@ class MovieDetailedActivity : AppCompatActivity(R.layout.activity_movie_detailed
 
     private fun setView(movie: Movie) {
         supportActionBar?.title = movie.title
-        backdrop.setImagePath(movie.posterPath)
+        backdrop.load("${Config.TMDB_IMAGE_BASE_URL_W780}${movie.posterPath}")
         tvOriginalTitle.text = movie.originalTitle
         tvOverview.text = movie.overview
         tvLanguage.text = movie.originalLanguage

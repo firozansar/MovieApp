@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/decorator"
+            android:layout_width="@dimen/_3sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:background="@drawable/vertical_show_line" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_toStartOf="@id/see_all_btn"
+            android:layout_toEndOf="@+id/decorator"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_16ssp"
+            tools:text="Newly Launched" />
+
+        <TextView
+            android:id="@+id/see_all_btn"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingTop="@dimen/_6sdp"
+            android:layout_alignTop="@id/title"
+            android:layout_alignBottom="@id/title"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:fontFamily="@font/montserrat"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:text="See all"
+            android:textAllCaps="false"
+            android:textColor="@color/red" />
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_posters_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:nestedScrollingEnabled="false"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="7"
+        tools:listitem="@layout/item_poster" />
+
+</LinearLayout>

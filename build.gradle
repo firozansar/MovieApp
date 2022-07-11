@@ -7,8 +7,9 @@ buildscript {
         retrofit_version = "2.9.0"
         room_version = "2.4.2"
         okhttpclient_version = "4.8.1"
+        moshi_version = "1.13.0"
         hilt_version = '2.42'
-        glide_version = '4.13.2'
+        coil_version = "1.2.2"
         kotlin_coroutines_version = "1.6.0"
         retrofit_coroutines_adapter_version = "0.9.2"
         paging_version = "3.1.1"
