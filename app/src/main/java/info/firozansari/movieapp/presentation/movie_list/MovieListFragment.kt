@@ -1,4 +1,4 @@
-package info.firozansari.movieapp.presentation.movieList
+package info.firozansari.movieapp.presentation.movie_list
 
 import android.os.Bundle
 import android.view.View

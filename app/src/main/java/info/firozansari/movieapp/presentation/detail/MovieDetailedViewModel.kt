@@ -1,4 +1,4 @@
-package info.firozansari.movieapp.presentation.detailedScreen
+package info.firozansari.movieapp.presentation.detail
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

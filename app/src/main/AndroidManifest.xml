@@ -24,7 +24,7 @@
         </activity>
 
         <activity
-            android:name=".presentation.detailedScreen.MovieDetailedActivity">
+            android:name=".presentation.detail.MovieDetailedActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".presentation.MainActivity" />

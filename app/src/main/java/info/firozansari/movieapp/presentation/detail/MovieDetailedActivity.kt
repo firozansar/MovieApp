@@ -1,4 +1,4 @@
-package info.firozansari.movieapp.presentation.detailedScreen
+package info.firozansari.movieapp.presentation.detail
 
 import android.app.Activity
 import android.content.Intent

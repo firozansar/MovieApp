@@ -5,13 +5,11 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.ViewPager
 import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
 import info.firozansari.movieapp.domain.model.MovieListType
-import info.firozansari.movieapp.presentation.movieList.MovieListFragment
-import kotlinx.android.synthetic.main.activity_main.bnvBottomMenu
-import kotlinx.android.synthetic.main.activity_main.vwPagerComponent
+import info.firozansari.movieapp.presentation.movie_list.MovieListFragment
+
 
 /**
  * This is a view that represents the three pages: top rated movies,
@@ -41,48 +39,48 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             }
         }
 
-        vwPagerComponent.currentItem = mainViewModel.getPage()
-        vwPagerComponent.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {}
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-            }
-
-            override fun onPageSelected(position: Int) {
-                when (position) {
-                    MainViewModel.TOP_RATED_PAGE ->
-                        bnvBottomMenu.selectedItemId =
-                            R.id.menuTopRatedMovies
-                    MainViewModel.POPULAR_PAGE ->
-                        bnvBottomMenu.selectedItemId =
-                            R.id.menuPopularMovies
-                    MainViewModel.FAVORITE_PAGE ->
-                        bnvBottomMenu.selectedItemId =
-                            R.id.menuFavoriteMovies
-                }
-                mainViewModel.setPage(pageIndex = position)
-            }
-        })
-
-        bnvBottomMenu.setOnNavigationItemSelectedListener {
-            if (bnvBottomMenu.selectedItemId == it.itemId) {
-                (fragmentsList[vwPagerComponent.currentItem] as? MovieListFragment)?.scrollToTop()
-            }
-
-            when (it.itemId) {
-                R.id.menuTopRatedMovies -> vwPagerComponent.setCurrentItem(0, false)
-                R.id.menuPopularMovies -> vwPagerComponent.setCurrentItem(1, false)
-                R.id.menuFavoriteMovies -> vwPagerComponent.setCurrentItem(2, false)
-            }
-            true
-        }
-
-        /**
-         * Limit pages in memory.
-         */
-        vwPagerComponent.offscreenPageLimit = 3
+//        vwPagerComponent.currentItem = mainViewModel.getPage()
+//        vwPagerComponent.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+//            override fun onPageScrollStateChanged(state: Int) {}
+//            override fun onPageScrolled(
+//                position: Int,
+//                positionOffset: Float,
+//                positionOffsetPixels: Int
+//            ) {
+//            }
+//
+//            override fun onPageSelected(position: Int) {
+//                when (position) {
+//                    MainViewModel.TOP_RATED_PAGE ->
+//                        bnvBottomMenu.selectedItemId =
+//                            R.id.menuTopRatedMovies
+//                    MainViewModel.POPULAR_PAGE ->
+//                        bnvBottomMenu.selectedItemId =
+//                            R.id.menuPopularMovies
+//                    MainViewModel.FAVORITE_PAGE ->
+//                        bnvBottomMenu.selectedItemId =
+//                            R.id.menuFavoriteMovies
+//                }
+//                mainViewModel.setPage(pageIndex = position)
+//            }
+//        })
+//
+//        bnvBottomMenu.setOnNavigationItemSelectedListener {
+//            if (bnvBottomMenu.selectedItemId == it.itemId) {
+//                (fragmentsList[vwPagerComponent.currentItem] as? MovieListFragment)?.scrollToTop()
+//            }
+//
+//            when (it.itemId) {
+//                R.id.menuTopRatedMovies -> vwPagerComponent.setCurrentItem(0, false)
+//                R.id.menuPopularMovies -> vwPagerComponent.setCurrentItem(1, false)
+//                R.id.menuFavoriteMovies -> vwPagerComponent.setCurrentItem(2, false)
+//            }
+//            true
+//        }
+//
+//        /**
+//         * Limit pages in memory.
+//         */
+//        vwPagerComponent.offscreenPageLimit = 3
     }
 }

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import info.firozansari.movieapp.R
 import info.firozansari.movieapp.domain.model.Movie
 import info.firozansari.movieapp.presentation.components.FiveStarsComponent
-import info.firozansari.movieapp.presentation.detailedScreen.MovieDetailedActivity
+import info.firozansari.movieapp.presentation.detail.MovieDetailedActivity
 import info.firozansari.movieapp.presentation.util.setImagePath
 
 class MoviesListAdapter : RecyclerView.Adapter<MoviesListAdapter.MovieViewHolder>() {

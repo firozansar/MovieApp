@@ -1,6 +1,5 @@
-package info.firozansari.movieapp.presentation.movieList
+package info.firozansari.movieapp.presentation.movie_list
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
