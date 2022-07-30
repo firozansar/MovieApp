@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="info.firozansari.movieapp.presentation.movie_list.MovieListFragment"
+        android:name="info.firozansari.movieapp.presentation.home.HomeFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_movies_list">
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_detailFragment"
             app:destination="@id/detailFragment" />
@@ -27,9 +27,9 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/action_navigation_home_to_selectGenresDialogFragment"
-            app:destination="@id/selectGenresDialogFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_navigation_home_to_selectGenresDialogFragment"-->
+<!--            app:destination="@id/selectGenresDialogFragment" />-->
         <action
             android:id="@+id/action_navigation_home_to_navigation_account"
             app:destination="@id/navigation_account" />
@@ -47,42 +47,9 @@
             android:name="isMovie"
             app:argType="boolean" />
     </fragment>
-
-    <fragment
-        android:id="@+id/navigation_coming_soon"
-        android:name="com.example.movieland.ui.coming_soon.ComingSoonFragment"
-        android:label="@string/title_coming_soon"
-        tools:layout="@layout/fragment_coming_soon">
-        <action
-            android:id="@+id/action_navigation_coming_soon_to_playerFragment"
-            app:destination="@id/playerFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@anim/pop_up"
-            app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_account"
-        android:name="com.example.movieland.ui.account.AccountFragment"
-        android:label="@string/title_account"
-        tools:layout="@layout/fragment_account">
-        <action
-            android:id="@+id/action_navigation_account_to_detailFragment"
-            app:destination="@id/detailFragment" />
-    </fragment>
-    <dialog
-        android:id="@+id/detailFragment"
-        android:name="com.example.movieland.ui.home.detail.DetailFragment"
-        android:label="DetailFragment"
-        tools:layout="@layout/fragment_detail_bsd">
-        <action
-            android:id="@+id/action_detailFragment_to_playerFragment"
-            app:destination="@id/playerFragment" />
-    </dialog>
     <fragment
         android:id="@+id/movieListFragment"
-        android:name="com.example.movieland.ui.media_list.MovieListFragment"
+        android:name="info.firozansari.movieapp.presentation.movielist.MovieListFragment"
         android:label="MovieListFragment"
         tools:layout="@layout/fragment_movie_list">
         <action
@@ -95,9 +62,43 @@
             android:id="@+id/action_movieListFragment_to_playerFragment"
             app:destination="@id/playerFragment" />
     </fragment>
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_coming_soon"-->
+<!--        android:name="com.example.movieland.ui.coming_soon.ComingSoonFragment"-->
+<!--        android:label="@string/title_coming_soon"-->
+<!--        tools:layout="@layout/fragment_coming_soon">-->
+<!--        <action-->
+<!--            android:id="@+id/action_navigation_coming_soon_to_playerFragment"-->
+<!--            app:destination="@id/playerFragment"-->
+<!--            app:enterAnim="@android:anim/fade_in"-->
+<!--            app:exitAnim="@anim/pop_up"-->
+<!--            app:popEnterAnim="@android:anim/fade_in"-->
+<!--            app:popExitAnim="@android:anim/fade_out" />-->
+<!--    </fragment>-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_account"-->
+<!--        android:name="com.example.movieland.ui.account.AccountFragment"-->
+<!--        android:label="@string/title_account"-->
+<!--        tools:layout="@layout/fragment_account">-->
+<!--        <action-->
+<!--            android:id="@+id/action_navigation_account_to_detailFragment"-->
+<!--            app:destination="@id/detailFragment" />-->
+<!--    </fragment>-->
+    <dialog
+        android:id="@+id/detailFragment"
+        android:name="info.firozansari.movieapp.presentation.home.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail_bsd">
+        <action
+            android:id="@+id/action_detailFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </dialog>
+
     <fragment
         android:id="@+id/playerFragment"
-        android:name="com.example.movieland.ui.player.PlayerFragment"
+        android:name="info.firozansari.movieapp.presentation.player.PlayerFragment"
         android:label="PlayerFragment">
         <action
             android:id="@+id/action_playerFragment_to_detailFragment"
@@ -105,43 +106,43 @@
         <action
             android:id="@+id/action_playerFragment_to_seasonPickerDialogFragment"
             app:destination="@id/seasonPickerDialogFragment" />
-        <action
-            android:id="@+id/action_playerFragment_to_castKnownForFragment"
-            app:destination="@id/castDetailsFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_playerFragment_to_castKnownForFragment"-->
+<!--            app:destination="@id/castDetailsFragment" />-->
     </fragment>
     <dialog
         android:id="@+id/seasonPickerDialogFragment"
-        android:name="com.example.movieland.ui.player.SeasonPickerDialogFragment"
+        android:name="info.firozansari.movieapp.presentation.player.SeasonPickerDialogFragment"
         android:label="SeasonPickerDialogFragment" />
-    <dialog
-        android:id="@+id/selectGenresDialogFragment"
-        android:name="com.example.movieland.ui.genres.GenresDialogFragment"
-        android:label="SelectGenresDialogFragment">
-        <action
-            android:id="@+id/action_selectGenresDialogFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-    </dialog>
-    <dialog
-        android:id="@+id/castDetailsFragment"
-        android:name="com.example.movieland.ui.cast.CastDetailsFragment"
-        android:label="CastDetailsFragment">
-        <action
-            android:id="@+id/action_castKnownForFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-        <argument
-            android:name="personId"
-            app:argType="integer" />
-        <argument
-            android:name="knownForDepartment"
-            app:argType="string"
-            app:nullable="true"/>
-        <argument
-            android:name="name"
-            app:argType="string" />
-        <argument
-            android:name="profilePath"
-            app:argType="string"
-            app:nullable="true" />
-    </dialog>
+<!--    <dialog-->
+<!--        android:id="@+id/selectGenresDialogFragment"-->
+<!--        android:name="com.example.movieland.ui.genres.GenresDialogFragment"-->
+<!--        android:label="SelectGenresDialogFragment">-->
+<!--        <action-->
+<!--            android:id="@+id/action_selectGenresDialogFragment_to_detailFragment"-->
+<!--            app:destination="@id/detailFragment" />-->
+<!--    </dialog>-->
+<!--    <dialog-->
+<!--        android:id="@+id/castDetailsFragment"-->
+<!--        android:name="com.example.movieland.ui.cast.CastDetailsFragment"-->
+<!--        android:label="CastDetailsFragment">-->
+<!--        <action-->
+<!--            android:id="@+id/action_castKnownForFragment_to_detailFragment"-->
+<!--            app:destination="@id/detailFragment" />-->
+<!--        <argument-->
+<!--            android:name="personId"-->
+<!--            app:argType="integer" />-->
+<!--        <argument-->
+<!--            android:name="knownForDepartment"-->
+<!--            app:argType="string"-->
+<!--            app:nullable="true"/>-->
+<!--        <argument-->
+<!--            android:name="name"-->
+<!--            app:argType="string" />-->
+<!--        <argument-->
+<!--            android:name="profilePath"-->
+<!--            app:argType="string"-->
+<!--            app:nullable="true" />-->
+<!--    </dialog>-->
 
 </navigation>

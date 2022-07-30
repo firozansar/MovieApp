@@ -3,24 +3,23 @@ package info.firozansari.movieapp.presentation.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.bumptech.glide.load.engine.Resource
-import com.example.datasource.remote.models.requests.AddToWatchListRequest
-import com.example.datasource.remote.models.responses.MovieListResponse
-import com.example.datasource.remote.models.responses.TmdbErrorResponse
-import com.example.movieland.BaseViewModel
-import com.example.movieland.data.models.HomeFeed
-import com.example.movieland.data.models.HomeFeedData
-import com.example.movieland.data.repositories.MoviesRepo
-import com.example.movieland.utils.Constants.ANIME_SERIES
-import com.example.movieland.utils.Constants.BOLLYWOOD_MOVIES
-import com.example.movieland.utils.Constants.NEWLY_LAUNCHED
-import com.example.movieland.utils.Constants.POPULAR_MOVIES
-import com.example.movieland.utils.Constants.POPULAR_TV_SHOWS
-import com.example.movieland.utils.Constants.TOP_RATED_MOVIES
-import com.example.movieland.utils.ErrorType
-import com.example.movieland.utils.Resource
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.lifecycle.HiltViewModel
+import info.firozansari.movieapp.data.MoviesRepository
+import info.firozansari.movieapp.data.api.response.HomeFeed
+import info.firozansari.movieapp.data.api.response.HomeFeedData
+import info.firozansari.movieapp.domain.model.requests.AddToWatchListRequest
+import info.firozansari.movieapp.domain.model.responses.MovieListResponse
+import info.firozansari.movieapp.domain.model.responses.TmdbErrorResponse
+import info.firozansari.movieapp.presentation.BaseViewModel
+import info.firozansari.movieapp.presentation.Config.ANIME_SERIES
+import info.firozansari.movieapp.presentation.Config.BOLLYWOOD_MOVIES
+import info.firozansari.movieapp.presentation.Config.NEWLY_LAUNCHED
+import info.firozansari.movieapp.presentation.Config.POPULAR_MOVIES
+import info.firozansari.movieapp.presentation.Config.POPULAR_TV_SHOWS
+import info.firozansari.movieapp.presentation.Config.TOP_RATED_MOVIES
+import info.firozansari.movieapp.presentation.util.ErrorType
+import info.firozansari.movieapp.presentation.util.Resource
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
@@ -33,7 +32,7 @@ import kotlin.random.Random
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val movieRepo: MoviesRepo
+    private val movieRepo: MoviesRepository
 ) : BaseViewModel(movieRepo) {
 
     private var _allFeedList: MutableLiveData<Resource<HomeFeedData>> = MutableLiveData()
@@ -145,116 +144,3 @@ class HomeViewModel @Inject constructor(
         return movieRepo.addToWatchList(accountId, sessionId, addToWatchListRequest)
     }
 }
-
-//
-// package com.example.movieland.ui.home
-//
-// import androidx.lifecycle.LiveData
-// import androidx.lifecycle.MutableLiveData
-// import androidx.lifecycle.viewModelScope
-// import androidx.paging.PagingData
-// import androidx.paging.cachedIn
-// import com.example.datasource.remote.models.requests.AddToWatchListRequest
-// import com.example.datasource.remote.models.responses.MovieListResponse
-// import com.example.datasource.remote.models.responses.MovieResult
-// import com.example.movieland.BaseViewModel
-// import com.example.movieland.data.models.HomeFeed
-// import com.example.movieland.data.models.HomeFeedData
-// import com.example.movieland.data.repositories.MoviesRepo
-// import com.example.movieland.utils.Resource
-// import dagger.hilt.android.lifecycle.HiltViewModel
-// import kotlinx.coroutines.*
-// import kotlinx.coroutines.flow.Flow
-// import kotlinx.coroutines.flow.flowOf
-// import okhttp3.ResponseBody
-// import retrofit2.Response
-// import javax.inject.Inject
-// import kotlin.random.Random
-//
-// @HiltViewModel
-// class HomeViewModel @Inject constructor(
-//    private val movieRepo: MoviesRepo
-// ) : BaseViewModel(movieRepo) {
-//
-// //    private var _allFeedList: MutableLiveData<Resource<List<HomeFeed>>> = MutableLiveData()
-// //    var allFeedList: LiveData<Resource<List<HomeFeed>>> = _allFeedList
-//
-//    private var _allFeedList: MutableLiveData<Resource<HomeFeedData>> = MutableLiveData()
-//    var allFeedList: LiveData<Resource<HomeFeedData>> = _allFeedList
-//
-//    init {
-//        fetchAllFeedLists()
-//    }
-//
-//    private fun fetchAllFeedLists() = viewModelScope.launch {
-//        _allFeedList.postValue(Resource.Loading())
-//
-//        try {
-//            coroutineScope {
-//
-//                val nowPlayingMoviesListDef: Deferred<Flow<PagingData<MovieResult>>> =
-//                    async { movieRepo.fetchNowPlayingMoviesPaging().cachedIn(viewModelScope) }
-//                val popularMoviesListDef =
-//                    async { movieRepo.fetchPopularMoviesPaging().cachedIn(viewModelScope) }
-//                val popularTvListDef =
-//                    async { movieRepo.fetchPopularTvShowsPaging().cachedIn(viewModelScope) }
-//                val topRatedMoviesListDef =
-//                    async { movieRepo.fetchTopRatedMoviesPaging().cachedIn(viewModelScope) }
-//                val animeSeriesDef = async { movieRepo.fetchAnimeSeriesPaging().cachedIn(viewModelScope) }
-//                val bollywoodDef =
-//                    async { movieRepo.fetchBollywoodMoviesPaging().cachedIn(viewModelScope) }
-//
-//                val wholeList = mutableListOf<HomeFeed>()
-//
-//                // Now playing
-//                val nowPlayingMoviesList: Flow<PagingData<MovieResult>> =
-//                    nowPlayingMoviesListDef.await()
-//                // Popular Movies
-//                val popularMoviesList = popularMoviesListDef.await()
-//                // Popular Tv
-//                val popularTvList = popularTvListDef.await()
-//                // Top Rated
-//                val topRatedMoviesList = topRatedMoviesListDef.await()
-//                // Anime Series
-//                val animeSeriesList = animeSeriesDef.await()
-//                // Bollywood
-//                val bollywoodList = bollywoodDef.await()
-//
-//                wholeList.add(HomeFeed("Newly Launched", nowPlayingMoviesList))
-//                wholeList.add(HomeFeed("Popular Movies", popularMoviesList))
-//                wholeList.add(HomeFeed("Popular Tv Shows", popularTvList))
-//                wholeList.add(HomeFeed("Top Rated Movies", topRatedMoviesList))
-//                wholeList.add(HomeFeed("Anime Series", animeSeriesList))
-//                wholeList.add(HomeFeed("Bollywood", bollywoodList))
-//
-//                val bannerMovieDef = async { movieRepo.fetchBannerMovie() }
-//                // Banner
-//                val bannerMovieResponse: Response<MovieListResponse> = bannerMovieDef.await()
-//
-//                val randomBannerMovie: MovieResult =
-//                    bannerMovieResponse.body()!!.movieResults[Random.nextInt(0, 9)]
-//
-// //                _allFeedList.postValue(Resource.Success(data = wholeList))
-//                _allFeedList.postValue(
-//                    Resource.Success(
-//                        data = HomeFeedData(
-//                            bannerMovie = randomBannerMovie,
-//                            homeFeedList = wholeList
-//                        )
-//                    )
-//                )
-//            }
-//        } catch (e: Exception) {
-//            _allFeedList.postValue(Resource.Error(message = e.message ?: "Something went wrong"))
-//        }
-//    }
-//
-//    suspend fun addToWatchList(
-//        accountId: Int,
-//        sessionId: String,
-//        addToWatchListRequest: AddToWatchListRequest
-//    ): Resource<ResponseBody> {
-//        return movieRepo.addToWatchList(accountId, sessionId, addToWatchListRequest)
-//    }
-//
-// }

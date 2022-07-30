@@ -2,7 +2,6 @@ package info.firozansari.movieapp.presentation.home
 
 import android.graphics.Color
 import android.os.Bundle
-import android.provider.SyncStateContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
 import info.firozansari.movieapp.databinding.FragmentHomeBinding
 import info.firozansari.movieapp.domain.model.requests.AddToWatchListRequest
+import info.firozansari.movieapp.domain.model.responses.Genre
 import info.firozansari.movieapp.domain.model.responses.MovieResult
 import info.firozansari.movieapp.presentation.Config.ANDROID
 import info.firozansari.movieapp.presentation.Config.DIMEN
@@ -104,7 +104,7 @@ class HomeFragment : Fragment() {
                     // Setup movie banner
                     _bannerMovie = it.data.bannerMovie
                     binding.bannerImage.load("${TMDB_IMAGE_BASE_URL_W780}${_bannerMovie!!.posterPath}")
-                    binding.bannerGenres.text = SyncStateContract.Helpers.getMovieGenreListFromIds(
+                    binding.bannerGenres.text = getMovieGenreListFromIds(
                         _bannerMovie!!.genreIds
                     ).joinToString(" • ") { it.name }
                     // Show RV
@@ -126,23 +126,23 @@ class HomeFragment : Fragment() {
 
     private fun setUpClickListeners() = binding.apply {
         moviesText.setOnClickListener {
-            val action =
-                HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = TRENDING_MOVIES)
-            navController.navigate(action)
+//            val action =
+//                HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = TRENDING_MOVIES)
+//            navController.navigate(action)
         }
 
         tvShowsText.setOnClickListener {
-            val action =
-                HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = TRENDING_TV_SHOWS)
-            navController.navigate(action)
+//            val action =
+//                HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = TRENDING_TV_SHOWS)
+//            navController.navigate(action)
         }
 
         genresText.setOnClickListener {
-            safeFragmentNavigation(
-                navController = navController,
-                currentFragmentId = R.id.navigation_home,
-                actionId = R.id.action_navigation_home_to_selectGenresDialogFragment
-            )
+//            safeFragmentNavigation(
+//                navController = navController,
+//                currentFragmentId = R.id.navigation_home,
+//                actionId = R.id.action_navigation_home_to_selectGenresDialogFragment
+//            )
         }
 
         bannerInfoButton.setOnClickListener {
@@ -174,6 +174,7 @@ class HomeFragment : Fragment() {
                                 )
                                 // is Resource.Loading -> TODO()
                                 is Resource.Success -> showSnackBar("Added to My List")
+                                else -> {}
                             }
                         }
                     } else
@@ -230,9 +231,9 @@ class HomeFragment : Fragment() {
                 openMediaDetailsBSD(it)
             },
             onSeeAllBtnClick = {
-                val action =
-                    HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = it)
-                navController.navigate(action)
+//                val action =
+//                    HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = it)
+//                navController.navigate(action)
             },
             onBollywoodPosterClick = {
                 parentFragmentManager.setFragmentResult(

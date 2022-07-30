@@ -1,20 +1,21 @@
-package info.firozansari.movieapp.presentation.movie_list
+package info.firozansari.movieapp.presentation.movielist
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
-import com.example.movieland.ui.media_list.MovieListFragmentArgs
 import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
+import info.firozansari.movieapp.data.paging.PagingStateAdapter
+import info.firozansari.movieapp.databinding.FragmentMovieListBinding
 import info.firozansari.movieapp.presentation.Config.BOLLYWOOD_MOVIES
 import info.firozansari.movieapp.presentation.Config.GENRES_ID_LIST_KEY
 import info.firozansari.movieapp.presentation.Config.IS_IT_A_MOVIE_KEY

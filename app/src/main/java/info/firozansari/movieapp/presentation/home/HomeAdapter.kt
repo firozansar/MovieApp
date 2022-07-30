@@ -5,10 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.datasource.remote.models.responses.MovieResult
-import com.example.movieland.data.models.HomeFeed
-import com.example.movieland.databinding.ItemFeedHorizontalListBinding
-import com.example.movieland.ui.home.HorizontalAdapter
+import info.firozansari.movieapp.data.api.response.HomeFeed
+import info.firozansari.movieapp.databinding.ItemFeedHorizontalListBinding
+import info.firozansari.movieapp.domain.model.responses.MovieResult
 
 class HomeAdapter(
     private var onPosterClick: (movieResult: MovieResult) -> Unit,
