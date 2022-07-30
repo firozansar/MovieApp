@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ui.home.HomeFragment">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -38,7 +37,6 @@
                 android:background="@android:color/transparent"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/montserrat"
                 android:paddingTop="@dimen/_4sdp"
                 android:paddingBottom="@dimen/_4sdp"
                 android:text="TVprogrammes"
@@ -54,7 +52,6 @@
                 android:background="?selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/montserrat"
                 android:paddingTop="@dimen/_4sdp"
                 android:paddingBottom="@dimen/_4sdp"
                 android:text="Movies"
@@ -70,7 +67,6 @@
                 android:background="?selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:fontFamily="@font/montserrat"
                 android:paddingTop="@dimen/_4sdp"
                 android:paddingBottom="@dimen/_4sdp"
                 android:text="Genres"
@@ -108,7 +104,7 @@
                     android:layout_height="@dimen/_434sdp"
                     android:background="@color/dark_gray"
                     android:scaleType="fitXY"
-                    tools:src="@drawable/img_intro_three" />
+                    tools:src="@drawable/ic_photo_album" />
                 <!--tools:src="@tools:sample/backgrounds/scenic[6]"-->
 
                 <View
@@ -131,7 +127,6 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:ellipsize="end"
-                    android:fontFamily="@font/montserrat"
                     android:gravity="center_horizontal"
                     android:maxLines="2"
                     android:text="Fetching genres..."
@@ -155,7 +150,6 @@
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:backgroundTint="@android:color/transparent"
-                        android:fontFamily="@font/montserrat"
                         android:text="My List"
                         android:textAllCaps="false"
                         android:textSize="@dimen/_9ssp"
@@ -182,7 +176,6 @@
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:backgroundTint="@android:color/transparent"
-                        android:fontFamily="@font/montserrat"
                         android:text="Info"
                         android:textAllCaps="false"
                         android:textSize="@dimen/_9ssp"
@@ -221,7 +214,6 @@
                         android:layout_marginStart="@dimen/_8sdp"
                         android:layout_marginTop="@dimen/_8sdp"
                         android:layout_marginBottom="@dimen/_8sdp"
-                        android:fontFamily="@font/montserrat_bold"
                         android:text="Newly Launched"
                         android:textColor="@color/text_primary"
                         android:textSize="@dimen/_16ssp" />
@@ -278,7 +270,6 @@
                         android:layout_marginStart="@dimen/_8sdp"
                         android:layout_marginTop="@dimen/_8sdp"
                         android:layout_marginBottom="@dimen/_8sdp"
-                        android:fontFamily="@font/montserrat_bold"
                         android:text="Popular Movies"
                         android:textColor="@color/text_primary"
                         android:textSize="@dimen/_16ssp" />

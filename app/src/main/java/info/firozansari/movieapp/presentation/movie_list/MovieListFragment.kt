@@ -1,94 +1,161 @@
 package info.firozansari.movieapp.presentation.movie_list
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.paging.LoadState
+import com.example.movieland.ui.media_list.MovieListFragmentArgs
 import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
-import info.firozansari.movieapp.domain.model.MovieListType
-import info.firozansari.movieapp.domain.model.convertToMovieListType
-import info.firozansari.movieapp.presentation.util.ViewModelResult
-import info.firozansari.movieapp.presentation.util.show
-
+import info.firozansari.movieapp.presentation.Config.BOLLYWOOD_MOVIES
+import info.firozansari.movieapp.presentation.Config.GENRES_ID_LIST_KEY
+import info.firozansari.movieapp.presentation.Config.IS_IT_A_MOVIE_KEY
+import info.firozansari.movieapp.presentation.Config.MEDIA_ID_KEY
+import info.firozansari.movieapp.presentation.Config.MEDIA_IMAGE_KEY
+import info.firozansari.movieapp.presentation.Config.MEDIA_OVERVIEW_KEY
+import info.firozansari.movieapp.presentation.Config.MEDIA_PLAY_REQUEST_KEY
+import info.firozansari.movieapp.presentation.Config.MEDIA_RATING_KEY
+import info.firozansari.movieapp.presentation.Config.MEDIA_SEND_REQUEST_KEY
+import info.firozansari.movieapp.presentation.Config.MEDIA_TITLE_KEY
+import info.firozansari.movieapp.presentation.Config.MEDIA_YEAR_KEY
+import info.firozansari.movieapp.presentation.home.MediaListPagerAdapter
+import info.firozansari.movieapp.presentation.util.ErrorType
+import info.firozansari.movieapp.presentation.util.handleExceptions
+import info.firozansari.movieapp.presentation.util.safeFragmentNavigation
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class MovieListFragment : Fragment(R.layout.fragment_movies_list) {
+class MovieListFragment : Fragment() {
 
-    private val viewModel: MovieListViewModel by viewModels()
+    private var _binding: FragmentMovieListBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var adapter: MediaListPagerAdapter
+    private val args: MovieListFragmentArgs by navArgs()
 
-    private val observer = Observer<ViewModelResult> { result ->
-        swRefreshLayout.isRefreshing = false
-        when (result) {
-            is ViewModelResult.Error -> {
-                tvError.show(true)
-                progressBar.stop()
-                swRefreshLayout.show(false)
-            }
-            is ViewModelResult.Loading -> {
-                progressBar.start()
-                tvError.show(false)
-                swRefreshLayout.show(false)
-            }
-            is ViewModelResult.Success -> {
-                rvList.adapterImplementation()?.setup(viewModel.movies())
-                showTheRefreshLayout()
-            }
-            is ViewModelResult.Updated -> {
-                rvList.adapterImplementation()?.update(viewModel.newPart())
-                showTheRefreshLayout()
-            }
-        }
+    @Inject
+    lateinit var movieListViewModelFactory: MovieListViewModel.TrendingViewModelFactory
+
+    private val viewModel: MovieListViewModel by viewModels {
+        MovieListViewModel.providesFactory(
+            assistedFactory = movieListViewModelFactory,
+            mediaCategory = args.mediaCategory
+        )
     }
 
-    private fun showTheRefreshLayout() {
-        swRefreshLayout.show(true)
-        progressBar.stop()
-        tvError.show(false)
+    private lateinit var navController: NavController
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentMovieListBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = findNavController()
+        binding.toolbar.title = args.mediaCategory
+        setUpRecyclerViewAndNav()
 
-        getMovieTypeFromIntent()?.let { type ->
-            setupViewModel(type)
-            setupRecyclerView(type)
+        viewModel.categoryWiseMediaList.observe(viewLifecycleOwner) {
+            adapter.submitData(lifecycle, it)
         }
+
+        binding.errorLayout.retryButton.setOnClickListener { adapter.retry() }
     }
 
-    private fun getMovieTypeFromIntent(): MovieListType? {
-        return arguments?.getInt(MOVIE_TYPE_VALUE)?.convertToMovieListType()
-    }
-
-    private fun setupViewModel(type: MovieListType) {
-        viewModel.onMoviesListReceived.observe(viewLifecycleOwner, observer)
-        viewModel.setup(type)
-    }
-
-    private fun setupRecyclerView(type: MovieListType) {
-        if (type == MovieListType.TopRated || type == MovieListType.Popular) {
-            rvList.paginationSupport {
-                viewModel.requestMore()
-            }
+    private fun setUpRecyclerViewAndNav() {
+        binding.toolbar.setNavigationOnClickListener {
+            navController.popBackStack()
         }
-        swRefreshLayout.setOnRefreshListener {
-            viewModel.reload()
-        }
-    }
 
-    fun scrollToTop() {
-        rvList.scrollToTop()
-    }
+        adapter = MediaListPagerAdapter(
+            onPosterClick = if (args.mediaCategory != BOLLYWOOD_MOVIES) {
+                {
+                    // callback of Poster click
+                    parentFragmentManager.setFragmentResult(
+                        MEDIA_SEND_REQUEST_KEY,
+                        bundleOf(
+                            GENRES_ID_LIST_KEY to it.genreIds,
+                            MEDIA_TITLE_KEY to (it.title ?: it.tvShowName),
+                            IS_IT_A_MOVIE_KEY to !it.title.isNullOrEmpty(),
+                            MEDIA_OVERVIEW_KEY to it.overview,
+                            MEDIA_IMAGE_KEY to it.backdropPath,
+                            MEDIA_YEAR_KEY to (it.releaseDate ?: it.tvShowFirstAirDate),
+                            MEDIA_ID_KEY to it.id,
+                            MEDIA_RATING_KEY to String.format("%.1f", it.voteAverage)
+                        )
+                    )
 
-    companion object {
+                    safeFragmentNavigation(
+                        navController = navController,
+                        currentFragmentId = R.id.movieListFragment,
+                        actionId = R.id.action_movieListFragment_to_detailFragment
+                    )
+                }
+            } else {
+                // BollyWood item click
+                {
+                    parentFragmentManager.setFragmentResult(
+                        MEDIA_PLAY_REQUEST_KEY,
+                        bundleOf(
+                            MEDIA_ID_KEY to it.id,
+                            IS_IT_A_MOVIE_KEY to true
+                        )
+                    )
+                    safeFragmentNavigation(
+                        navController = navController,
+                        currentFragmentId = R.id.movieListFragment,
+                        actionId = R.id.action_movieListFragment_to_playerFragment
+                    )
+                }
+            },
+        )
 
-        private const val MOVIE_TYPE_VALUE = "aspd"
+        binding.listRecyclerview.adapter = adapter.withLoadStateHeaderAndFooter(
+            footer = PagingStateAdapter { adapter.retry() },
+            header = PagingStateAdapter { adapter.retry() }
+        )
+        binding.listRecyclerview.setHasFixedSize(true)
 
-        fun newInstance(type: MovieListType): MovieListFragment {
-            return MovieListFragment().apply {
-                arguments = Bundle().also { bundle ->
-                    bundle.putInt(MOVIE_TYPE_VALUE, type.value)
+        adapter.addLoadStateListener {
+            when (it.refresh) {
+                is LoadState.NotLoading -> binding.apply {
+                    progressBar.isGone = true
+                    listRecyclerview.isGone = false
+                }
+
+                LoadState.Loading -> binding.apply {
+                    errorLayout.root.isGone = true
+                    progressBar.isGone = false
+                    listRecyclerview.isGone = true
+                }
+
+                is LoadState.Error -> binding.apply {
+                    progressBar.isGone = true
+                    errorLayout.root.isGone = false
+                    listRecyclerview.isGone = true
+                    val errorType: ErrorType =
+                        handleExceptions((it.refresh as LoadState.Error).error)
+                    if (errorType == ErrorType.NETWORK) {
+                        // Network problem
+                        errorLayout.statusTextTitle.text = "Connection Error"
+                        errorLayout.statusTextDesc.text = "Please check your internet connection"
+                    } else {
+                        // Http error or unknown
+                        errorLayout.statusTextTitle.text = "Oops.. Something went wrong"
+                        errorLayout.statusTextDesc.text = "Please try again"
+                    }
                 }
             }
         }

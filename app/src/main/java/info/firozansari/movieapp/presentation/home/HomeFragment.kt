@@ -19,7 +19,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import coil.load
-import com.bumptech.glide.load.engine.Resource
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
@@ -44,6 +43,7 @@ import info.firozansari.movieapp.presentation.Config.TMDB_IMAGE_BASE_URL_W780
 import info.firozansari.movieapp.presentation.Config.TRENDING_MOVIES
 import info.firozansari.movieapp.presentation.Config.TRENDING_TV_SHOWS
 import info.firozansari.movieapp.presentation.util.Helpers.getMovieGenreListFromIds
+import info.firozansari.movieapp.presentation.util.Resource
 import info.firozansari.movieapp.presentation.util.safeFragmentNavigation
 import info.firozansari.movieapp.presentation.util.showSnackBar
 import kotlinx.coroutines.flow.first

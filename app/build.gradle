@@ -111,6 +111,22 @@ dependencies {
     // JetPack DataStore
     implementation "androidx.datastore:datastore-preferences:$datastore_version"
 
+    // Intuit ssp & sdp
+    implementation "com.intuit.sdp:sdp-android:$intuit_version"
+    implementation "com.intuit.ssp:ssp-android:$intuit_version"
+
+    // Android Youtube Player
+    implementation "com.pierfrancescosoffritti.androidyoutubeplayer:core:$youtube_version"
+
+    // Chrome Custom Tab
+    implementation "androidx.browser:browser:$chrome_custom_tab_version"
+
+    // Material Dot viewpager indicator library
+    implementation "com.github.zhpanvip:viewpagerindicator:$dot_indicator"
+
+    // Pallet
+    implementation 'androidx.palette:palette-ktx:1.0.0'
+
     // debugging
     implementation "com.jakewharton.timber:timber:$timber_version"
     implementation "com.facebook.stetho:stetho:$stetho_version"

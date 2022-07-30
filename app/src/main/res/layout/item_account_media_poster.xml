@@ -76,7 +76,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_2sdp"
-                android:fontFamily="@font/montserrat"
                 android:textColor="@color/text_primary"
                 android:textSize="@dimen/_12ssp"
                 tools:text="7" />
@@ -84,7 +83,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat"
                 android:text=" /10  by you"
                 android:textColor="@color/text_secondary"
                 android:textSize="@dimen/_10ssp" />

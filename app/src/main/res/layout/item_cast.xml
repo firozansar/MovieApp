@@ -34,7 +34,6 @@
         android:maxLines="2"
         android:ellipsize="end"
         android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/montserrat_bold"
         tools:text="Shahrukh Khan"
         android:textSize="@dimen/_10ssp"
         android:textColor="@color/text_primary"/>
@@ -43,7 +42,6 @@
         android:id="@+id/crew_character_name"
         android:layout_width="@dimen/_102sdp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
         android:textAlignment="center"
         android:ellipsize="end"
         android:maxLines="2"

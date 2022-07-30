@@ -9,9 +9,9 @@
     <string name="favorite_movies_screen_title">Favorite Movies</string>
     <string name="offline_now">You are offline now.</string>
     <string name="grande_dragao_branco">This is an example</string>
-    <string name="release_date_example">10/05/2020</string>
+    <string name="release_date_example">10/05/2022</string>
     <string name="star">star</string>
-    <string name="description_example">Aliquam et viverra justo. Sed dictum nisi vitae justo blandit varius. Ut placerat euismod pharetra. Integer interdum, arcu gravida pulvinar fringilla, lectus lectus viverra libero, et tristique magna orci sed augue. Cras et erat condimentum, suscipit orci ac, semper augue. Ut ac ornare nunc. Nam pharetra elementum est, eu malesuada mauris dignissim in. Nullam pretium tellus mi, congue tincidunt dolor varius et.</string>
+    <string name="description_example">Aliquam placerat euismod pharetra. Integer interdum, arcu gravida pulvinar fringilla, lectus lectus viverra libero, et tristique magna orci sed augue. Cras et erat condimentum, suscipit orci ac, semper augue. Ut ac ornare nunc. Nam pharetra elementum est, eu malesuada mauris dignissim in. Nullam pretium tellus mi, congue tincidunt dolor varius et.</string>
     <string name="overview">Overview</string>
     <string name="language">Language</string>
     <string name="original_title">Original Title</string>
@@ -24,7 +24,10 @@
     <string name="error_message">Sorry something went wrong!</string>
     <string name="poster">Poster</string>
     <string name="background">Background</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home">Home</string>
     <string name="title_search">Search</string>
+    <string name="title_coming_soon">Coming Soon</string>
+    <string name="title_account">Account</string>
+    <string name="title_imdb">IMDB</string>
+    <string name="title_youtube">YouTube</string>
 </resources>

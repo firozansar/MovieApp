@@ -30,7 +30,6 @@
             android:layout_marginBottom="@dimen/_8sdp"
             android:layout_toStartOf="@id/see_all_btn"
             android:layout_toEndOf="@+id/decorator"
-            android:fontFamily="@font/montserrat_bold"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/_16ssp"
             tools:text="Newly Launched" />
@@ -45,7 +44,6 @@
             android:layout_alignBottom="@id/title"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="@dimen/_6sdp"
-            android:fontFamily="@font/montserrat"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:text="See all"
             android:textAllCaps="false"

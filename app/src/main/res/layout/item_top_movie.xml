@@ -35,7 +35,6 @@
         android:textColor="@color/text_secondary"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/_2sdp"
-        android:fontFamily="@font/montserrat"
         android:layout_marginStart="@dimen/_6sdp"
         android:layout_weight="1"
         tools:text="Batman 3" />
