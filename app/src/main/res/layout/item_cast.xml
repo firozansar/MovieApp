@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="@dimen/_8sdp"
+    android:layout_marginVertical="@dimen/_4sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/dark_gray"
+        android:layout_gravity="center_horizontal"
+        app:cardCornerRadius="@dimen/_41sdp">
+
+        <ImageView
+            android:id="@+id/crew_picture"
+            android:layout_width="@dimen/_82sdp"
+            android:layout_height="@dimen/_82sdp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/fast_saga"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/crew_real_name"
+        android:layout_width="@dimen/_102sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:textAlignment="center"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_gravity="center_horizontal"
+        tools:text="Shahrukh Khan"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="@color/text_primary"/>
+
+    <TextView
+        android:id="@+id/crew_character_name"
+        android:layout_width="@dimen/_102sdp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:layout_gravity="center_horizontal"
+        android:text="as Raees"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="@color/text_secondary"/>
+
+</LinearLayout>

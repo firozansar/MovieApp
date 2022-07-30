@@ -1,88 +1,55 @@
 package info.firozansari.movieapp.presentation
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.ViewPager
+import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import coil.ImageLoader
+import coil.request.ImageRequest
 import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
-import info.firozansari.movieapp.domain.model.MovieListType
-import info.firozansari.movieapp.presentation.movieList.MovieListFragment
-import kotlinx.android.synthetic.main.activity_main.bnvBottomMenu
-import kotlinx.android.synthetic.main.activity_main.vwPagerComponent
+import info.firozansari.movieapp.databinding.ActivityMainBinding
 
 /**
- * This is a view that represents the three pages: top rated movies,
- * popular movies, and favorite movies.
  * @author Firoz Ansari
  */
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity() {
 
-    private val fragmentsList = listOf(
-        MovieListFragment.newInstance(MovieListType.TopRated),
-        MovieListFragment.newInstance(MovieListType.Popular),
-        MovieListFragment.newInstance(MovieListType.Favorite)
-    )
-    private val mainViewModel: MainViewModel by viewModels()
+    lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
+    lateinit var imageLoader: ImageLoader
+    lateinit var imageRequestBuilder: ImageRequest.Builder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        vwPagerComponent.adapter = object :
-            FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-            override fun getCount(): Int {
-                return fragmentsList.size
-            }
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        navController = findNavController(R.id.nav_host_fragment_activity_main)
+        binding.bottomNavView.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener { navContrl, destination, _ ->
 
-            override fun getItem(position: Int): Fragment {
-                return fragmentsList[position]
-            }
-        }
-
-        vwPagerComponent.currentItem = mainViewModel.getPage()
-        vwPagerComponent.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {}
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
+            if (navContrl.previousBackStackEntry?.destination?.id == R.id.navigation_home ||
+                navContrl.previousBackStackEntry?.destination?.id == R.id.navigation_search ||
+                navContrl.previousBackStackEntry?.destination?.id == R.id.navigation_account
             ) {
+                binding.bottomNavView.isVisible = destination.id != R.id.playerFragment &&
+                    destination.id != R.id.movieListFragment
+                    //&& destination.id != R.id.castDetailsFragment
+            } else {
+                binding.bottomNavView.isVisible = destination.id != R.id.playerFragment &&
+                    destination.id != R.id.movieListFragment &&
+                    destination.id != R.id.detailFragment
+                    //&& destination.id != R.id.castDetailsFragment
             }
-
-            override fun onPageSelected(position: Int) {
-                when (position) {
-                    MainViewModel.TOP_RATED_PAGE ->
-                        bnvBottomMenu.selectedItemId =
-                            R.id.menuTopRatedMovies
-                    MainViewModel.POPULAR_PAGE ->
-                        bnvBottomMenu.selectedItemId =
-                            R.id.menuPopularMovies
-                    MainViewModel.FAVORITE_PAGE ->
-                        bnvBottomMenu.selectedItemId =
-                            R.id.menuFavoriteMovies
-                }
-                mainViewModel.setPage(pageIndex = position)
-            }
-        })
-
-        bnvBottomMenu.setOnNavigationItemSelectedListener {
-            if (bnvBottomMenu.selectedItemId == it.itemId) {
-                (fragmentsList[vwPagerComponent.currentItem] as? MovieListFragment)?.scrollToTop()
-            }
-
-            when (it.itemId) {
-                R.id.menuTopRatedMovies -> vwPagerComponent.setCurrentItem(0, false)
-                R.id.menuPopularMovies -> vwPagerComponent.setCurrentItem(1, false)
-                R.id.menuFavoriteMovies -> vwPagerComponent.setCurrentItem(2, false)
-            }
-            true
         }
+        imageLoader = ImageLoader(this)
+        imageRequestBuilder = ImageRequest.Builder(this)
+    }
 
-        /**
-         * Limit pages in memory.
-         */
-        vwPagerComponent.offscreenPageLimit = 3
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

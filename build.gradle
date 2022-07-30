@@ -2,32 +2,43 @@
 
 buildscript {
     ext {
-        kotlin_version = "1.6.10"
-        nav_version = "2.3.0-beta01"
+        kotlin_version = "1.7.10"
+        nav_version = "2.5.0"
         retrofit_version = "2.9.0"
-        room_version = "2.4.0"
+        room_version = "2.4.2"
         okhttpclient_version = "4.8.1"
-        hiltCoreVersion = '2.38.1'
-        hiltVersion = '1.0.0'
-        kotlin_coroutines_version = "1.5.2"
+        moshi_version = "1.13.0"
+        hilt_version = '2.42'
+        coil_version = "1.2.2"
+        kotlin_coroutines_version = "1.6.0"
         retrofit_coroutines_adapter_version = "0.9.2"
+        paging_version = "3.1.1"
+        datastore_version = "1.0.0"
+        youtube_version = "11.0.1"
+        intuit_version = "1.0.6"
+        chrome_custom_tab_version = "1.4.0"
+        dot_indicator = "1.2.1"
         arch_testing_version = "2.1.0"
-        mockwebserver = "3.8.1"
-        timberVersion = '4.7.1'
-        stethoVersion = '1.5.1'
-        robolectricVersion = '4.3'
-        // plugins
-        spotlessVersion = '5.14.0'
+        mock_webserver_version = "3.8.1"
+        timber_version = '4.7.1'
+        stetho_version = '1.5.1'
+        robolectric_version = '4.3'
+        spotless_version = '5.14.0'
     }
     repositories {
         mavenCentral()
         google()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.41'
-        classpath "com.diffplug.spotless:spotless-plugin-gradle:$spotlessVersion"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath "com.diffplug.spotless:spotless-plugin-gradle:$spotless_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
     }
 }
 
@@ -35,5 +46,8 @@ allprojects {
     repositories {
         mavenCentral()
         google()
+        maven {
+            url "https://jitpack.io"
+        }
     }
 }
