@@ -23,7 +23,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
 import info.firozansari.movieapp.databinding.FragmentHomeBinding
 import info.firozansari.movieapp.domain.model.requests.AddToWatchListRequest
-import info.firozansari.movieapp.domain.model.responses.Genre
 import info.firozansari.movieapp.domain.model.responses.MovieResult
 import info.firozansari.movieapp.presentation.Config.ANDROID
 import info.firozansari.movieapp.presentation.Config.DIMEN
@@ -126,15 +125,15 @@ class HomeFragment : Fragment() {
 
     private fun setUpClickListeners() = binding.apply {
         moviesText.setOnClickListener {
-//            val action =
-//                HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = TRENDING_MOVIES)
-//            navController.navigate(action)
+            val action =
+                HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = TRENDING_MOVIES)
+            navController.navigate(action)
         }
 
         tvShowsText.setOnClickListener {
-//            val action =
-//                HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = TRENDING_TV_SHOWS)
-//            navController.navigate(action)
+            val action =
+                HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = TRENDING_TV_SHOWS)
+            navController.navigate(action)
         }
 
         genresText.setOnClickListener {
@@ -231,9 +230,9 @@ class HomeFragment : Fragment() {
                 openMediaDetailsBSD(it)
             },
             onSeeAllBtnClick = {
-//                val action =
-//                    HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = it)
-//                navController.navigate(action)
+                val action =
+                    HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = it)
+                navController.navigate(action)
             },
             onBollywoodPosterClick = {
                 parentFragmentManager.setFragmentResult(
