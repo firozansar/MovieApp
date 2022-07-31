@@ -39,7 +39,7 @@ fun View.showSnackBar(
 
 fun Fragment.showSnackBar(
     message: String,
-    length: Int = Snackbar.LENGTH_LONG,
+    length: Int = Snackbar.LENGTH_SHORT,
     actionMsg: String? = null,
     action: (() -> Unit)? = null
 ) = requireView().showSnackBar(

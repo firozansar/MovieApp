@@ -152,10 +152,11 @@ class DetailFragment : BottomSheetDialogFragment() {
                         )
                     ).let { response ->
                         when (response) {
-                            is Resource.Error -> showSnackBar(
-                                response.message ?: "Something went wrong"
-                            )
-                            // is Resource.Loading -> TODO()
+                            is Resource.Error -> {
+//                                showSnackBar(
+//                                    response.message ?: "Something went wrong"
+//                                )
+                            }
                             is Resource.Success -> showSnackBar("Added to My List")
                             else -> {}
                         }
