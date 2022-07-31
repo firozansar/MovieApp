@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerCallback
 import info.firozansari.movieapp.databinding.ItemVideoBinding
-import info.firozansari.movieapp.domain.model.responses.VideoResult
+import info.firozansari.movieapp.domain.responses.VideoResult
 
 class MoreVideosAdapter :
     ListAdapter<VideoResult, MoreVideosAdapter.ViewHolder>(DiffUtilCallback()) {

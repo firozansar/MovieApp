@@ -15,10 +15,10 @@ import info.firozansari.movieapp.data.paging.PopularMoviesPagingSource
 import info.firozansari.movieapp.data.paging.PopularTvPagingSource
 import info.firozansari.movieapp.data.paging.TopRatedPagingSource
 import info.firozansari.movieapp.data.paging.TrendingMediaPagingSource
-import info.firozansari.movieapp.domain.model.requests.AddToFavouriteRequest
+import info.firozansari.movieapp.domain.requests.AddToFavouriteRequest
 import info.firozansari.movieapp.domain.model.requests.AddToWatchListRequest
 import info.firozansari.movieapp.domain.model.requests.MediaRatingRequest
-import info.firozansari.movieapp.domain.model.responses.MovieResult
+import info.firozansari.movieapp.domain.responses.MovieResult
 import info.firozansari.movieapp.presentation.Config.MOVIE
 import info.firozansari.movieapp.presentation.Config.TV
 import info.firozansari.movieapp.presentation.util.SessionPrefs
