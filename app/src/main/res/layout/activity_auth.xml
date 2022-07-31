@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <ImageView
+        android:id="@+id/app_name"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginStart="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_34sdp"
+        android:src="@drawable/ic_movie_text_logo"
+        android:translationZ="@dimen/_100sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_skip"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:text="SKIP"
+        android:textAllCaps="false"
+        android:textColor="@color/text_primary"
+        android:translationZ="@dimen/_100sdp"
+        app:layout_constraintBottom_toBottomOf="@id/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/app_name" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager_auth"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        app:layout_constraintBottom_toTopOf="@+id/dots_indicator"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.zhpan.indicator.IndicatorView
+        android:id="@+id/dots_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@id/button_sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:vpi_orientation="horizontal"
+        app:vpi_slide_mode="worm"
+        app:vpi_slider_checked_color="@color/text_primary"
+        app:vpi_slider_normal_color="@color/divider"
+        app:vpi_slider_radius="@dimen/_4sdp"
+        app:vpi_style="circle" />
+
+    <info.firozansari.movieapp.presentation.components.LoadingButton
+        android:id="@+id/button_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lb_btnColor="@color/colorPrimary"
+        app:lb_btnDisabledColor="#cccccc"
+        app:lb_btnRippleColor="#ffffff"
+        app:lb_btnText="SIGN IN"
+        app:lb_cornerRadius="@dimen/_2sdp"
+        app:lb_disabledTextColor="#999999"
+        app:lb_resetAfterFailed="true"
+        app:lb_rippleEnable="true"
+        app:lb_textColor="@color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

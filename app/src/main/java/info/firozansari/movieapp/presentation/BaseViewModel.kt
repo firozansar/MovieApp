@@ -2,7 +2,7 @@ package info.firozansari.movieapp.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import info.firozansari.movieapp.data.BaseRepository
+import info.firozansari.movieapp.data.repository.BaseRepository
 import kotlinx.coroutines.launch
 
 open class BaseViewModel(private val baseRepo: BaseRepository) : ViewModel() {

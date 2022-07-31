@@ -12,7 +12,7 @@
         android:layout_width="@dimen/_22sdp"
         android:layout_height="@dimen/_22sdp"
         android:layout_centerInParent="true"
-        android:indeterminateTint="@color/red" />
+        android:indeterminateTint="@color/colorPrimary" />
 
     <Button
         android:id="@+id/retry_button"
@@ -23,6 +23,6 @@
         android:text="Retry"
         android:visibility="gone"
         tools:visibility="visible"
-        android:textColor="@color/red"
+        android:textColor="@color/colorPrimary"
         android:textAllCaps="false" />
 </RelativeLayout>

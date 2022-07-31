@@ -89,8 +89,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
                 app:tabBackground="@color/black"
-                app:tabIndicatorColor="@color/red"
-                app:tabSelectedTextColor="@color/red"
+                app:tabIndicatorColor="@color/colorPrimary"
+                app:tabSelectedTextColor="@color/colorPrimary"
                 app:tabTextColor="@color/text_secondary">
 
                 <com.google.android.material.tabs.TabItem
@@ -147,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/_96sdp"
-            android:indeterminateTint="@color/red"
+            android:indeterminateTint="@color/colorPrimary"
             android:visibility="gone" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -181,6 +181,6 @@
         android:layout_width="@dimen/_28sdp"
         android:layout_height="@dimen/_28sdp"
         android:layout_gravity="center"
-        android:indeterminateTint="@color/red" />
+        android:indeterminateTint="@color/colorPrimary" />
 
 </FrameLayout>

@@ -62,7 +62,7 @@
                             android:layout_height="@dimen/_14sdp"
                             android:layout_gravity="center_vertical"
                             android:src="@drawable/ic_rated_star"
-                            app:tint="@color/red" />
+                            app:tint="@color/colorPrimary" />
 
                         <TextView
                             android:id="@+id/rating_text"
@@ -112,7 +112,7 @@
                     android:id="@+id/tvGenres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/red"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/_10ssp"
                     tools:text="Action • Adventure • Comedy • Scifi" />
 

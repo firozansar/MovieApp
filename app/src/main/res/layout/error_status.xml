@@ -44,7 +44,7 @@
         android:layout_marginTop="@dimen/_36sdp"
         android:text="Retry"
         android:textAllCaps="false"
-        android:textColor="@color/red"
+        android:textColor="@color/colorPrimary"
         android:textSize="@dimen/_14ssp"
         app:strokeColor="@color/dark_gray" />
 </LinearLayout>

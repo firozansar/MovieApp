@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/not_sign_in_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_112sdp"
+        android:background="@drawable/gradient_top"
+        android:translationZ="@dimen/_72sdp"
+        app:layout_constraintTop_toTopOf="@id/intro_image" />
+
+    <ImageView
+        android:id="@+id/intro_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_432sdp"
+        android:src="@drawable/img_intro_one"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_220sdp"
+        android:background="@drawable/gradient_bottom"
+        android:translationZ="@dimen/_72sdp"
+        app:layout_constraintBottom_toBottomOf="@id/intro_image" />
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:translationZ="@dimen/_90sdp"
+        app:layout_constraintBottom_toBottomOf="@id/intro_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/intro_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Sign in"
+            android:textAlignment="center"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/movie_land_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Movie"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_28ssp" />
+
+        <TextView
+            android:id="@+id/intro_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:gravity="center"
+            android:text="Unlock features like maintaining own movies list and rate movies, etc"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/_14ssp" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/account_sign_in_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_40sdp"
+        android:backgroundTint="@color/colorAccent"
+        android:paddingEnd="@dimen/_30sdp"
+        android:text="Sign in now"
+        android:textColor="@color/black"
+        app:icon="@drawable/ic_movie_foreground"
+        app:iconGravity="start"
+        app:iconPadding="@dimen/_12sdp"
+        app:iconSize="@dimen/_38sdp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import info.firozansari.movieapp.data.MoviesRepository
+import info.firozansari.movieapp.data.repository.MoviesRepository
 import info.firozansari.movieapp.domain.model.responses.MovieListResponse
 import info.firozansari.movieapp.presentation.util.Resource
 import kotlinx.coroutines.launch

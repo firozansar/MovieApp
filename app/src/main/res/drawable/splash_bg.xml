@@ -5,7 +5,7 @@
     <item
         android:width="@dimen/_216sdp"
         android:height="@dimen/_216sdp"
-        android:drawable="@drawable/ic_moviland_text_logo"
+        android:drawable="@drawable/ic_movie_text_logo"
         android:gravity="center" />
 
 </layer-list>

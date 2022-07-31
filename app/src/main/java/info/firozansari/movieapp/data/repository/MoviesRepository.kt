@@ -1,4 +1,4 @@
-package info.firozansari.movieapp.data
+package info.firozansari.movieapp.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.paging.Pager

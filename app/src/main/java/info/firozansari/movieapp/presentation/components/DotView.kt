@@ -1,4 +1,4 @@
-package info.firozansari.movieapp.presentation.components.loader
+package info.firozansari.movieapp.presentation.components
 
 import android.content.Context
 import android.graphics.Canvas

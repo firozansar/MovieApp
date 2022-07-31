@@ -7,7 +7,7 @@ object Config {
     const val PARAMETER_POPULAR_MOVIES = "popularity.desc"
     const val PARAMETER_TOP_RATED_MOVIES = "vote_average.desc"
 
-    const val MOVIE_LAND_URL = "android://com.example.movieland/ui/auth/AuthActivity"
+    const val MOVIE_APP_URL = "android://info.firozansari.movieapp/presentation/auth/AuthActivity"
     const val TMDB_AUTHENTICATION_WEB_PAGE_REDIRECT_URL =
         "https://www.themoviedb.org/auth/access?request_token="
     const val TMDB_POSTER_IMAGE_BASE_URL_W342 =
