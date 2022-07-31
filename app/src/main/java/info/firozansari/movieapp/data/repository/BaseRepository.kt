@@ -1,4 +1,4 @@
-package info.firozansari.movieapp.data
+package info.firozansari.movieapp.data.repository
 
 import com.squareup.moshi.Moshi
 import info.firozansari.movieapp.domain.model.responses.TmdbErrorResponse

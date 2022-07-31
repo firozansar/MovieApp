@@ -96,7 +96,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingHorizontal="@dimen/_6sdp"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorPrimary"
                             android:textSize="@dimen/_10ssp"
                             tools:text="Action • Adventure • Comedy • Scifi" />
 
@@ -190,7 +190,7 @@
                             android:layout_gravity="start"
                             android:layout_marginHorizontal="@dimen/_6sdp"
                             android:layout_marginTop="@dimen/_8sdp"
-                            android:backgroundTint="@color/red"
+                            android:backgroundTint="@color/colorPrimary"
                             android:text="Where to Watch"
                             android:textAllCaps="false"
                             android:textColor="@color/black"

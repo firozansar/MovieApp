@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.lifecycle.HiltViewModel
-import info.firozansari.movieapp.data.MoviesRepository
+import info.firozansari.movieapp.data.repository.MoviesRepository
 import info.firozansari.movieapp.data.api.response.HomeFeed
 import info.firozansari.movieapp.data.api.response.HomeFeedData
 import info.firozansari.movieapp.domain.model.requests.AddToWatchListRequest

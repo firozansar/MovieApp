@@ -9,8 +9,7 @@ import androidx.paging.cachedIn
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import dagger.hilt.android.lifecycle.HiltViewModel
-import info.firozansari.movieapp.data.MoviesRepository
+import info.firozansari.movieapp.data.repository.MoviesRepository
 import info.firozansari.movieapp.domain.model.responses.MovieResult
 import info.firozansari.movieapp.presentation.BaseViewModel
 import info.firozansari.movieapp.presentation.Config.ANIME_SERIES
@@ -21,8 +20,6 @@ import info.firozansari.movieapp.presentation.Config.POPULAR_TV_SHOWS
 import info.firozansari.movieapp.presentation.Config.TOP_RATED_MOVIES
 import info.firozansari.movieapp.presentation.Config.TRENDING_MOVIES
 import info.firozansari.movieapp.presentation.Config.TRENDING_TV_SHOWS
-import javax.inject.Inject
-
 
 class MovieListViewModel @AssistedInject constructor(
     private val movieRepo: MoviesRepository,

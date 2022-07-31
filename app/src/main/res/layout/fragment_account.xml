@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.account.AccountFragment">
+
+    <include
+        android:id="@+id/not_sign_in_layout"
+        layout="@layout/account_not_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/main_logged_in_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_2sdp"
+                android:paddingTop="@dimen/_16sdp"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/user_image"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_margin="@dimen/_6sdp"
+                    android:src="@drawable/ic_account_circle"
+                    app:tint="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_weight="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/_16ssp"
+                    tools:text="Haid-Faiz" />
+
+                <ImageView
+                    android:id="@+id/log_out_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp"
+                    android:src="@drawable/ic_logout"
+                    app:tint="@color/colorPrimary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:background="@color/black_light"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_8sdp">
+
+                    <View
+                        android:layout_width="@dimen/_3sdp"
+                        android:layout_height="@dimen/_14sdp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/vertical_show_line" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:text="Your WatchList"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/watchlist_movies_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:layout_toStartOf="@id/watchlist_shows_card"
+                        android:checkable="true"
+                        app:cardBackgroundColor="@color/dark_gray"
+                        app:cardCornerRadius="@dimen/_8sdp"
+                        app:checkedIcon="@null"
+                        app:strokeColor="@color/text_secondary"
+                        app:strokeWidth="1dp">
+
+                        <TextView
+                            android:id="@+id/watchlist_movies_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingHorizontal="@dimen/_12sdp"
+                            android:paddingVertical="@dimen/_1sdp"
+                            android:text="Movie"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/watchlist_shows_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:checkable="true"
+                        app:cardBackgroundColor="@color/dark_gray"
+                        app:cardCornerRadius="@dimen/_8sdp"
+                        app:checkedIcon="@null"
+                        app:strokeColor="@color/text_secondary"
+                        app:strokeWidth="1dp">
+
+                        <TextView
+                            android:id="@+id/watchlist_shows_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingHorizontal="@dimen/_12sdp"
+                            android:paddingVertical="@dimen/_1sdp"
+                            android:text="TV Shows"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_watchlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_2sdp"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_poster" />
+
+                <TextView
+                    android:id="@+id/empty_watchlist_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_138sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:gravity="center"
+                    android:text="You haven't added any movie/show in watchlist."
+                    android:textColor="@color/text_secondary"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/watchlist_placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_2sdp">
+
+                    <View
+                        android:layout_width="@dimen/_94sdp"
+                        android:layout_height="@dimen/_138sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/poster_bg" />
+
+                    <View
+                        android:layout_width="@dimen/_94sdp"
+                        android:layout_height="@dimen/_138sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/poster_bg" />
+
+                    <View
+                        android:layout_width="@dimen/_94sdp"
+                        android:layout_height="@dimen/_138sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/poster_bg" />
+
+                    <View
+                        android:layout_width="@dimen/_94sdp"
+                        android:layout_height="@dimen/_138sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/poster_bg" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="@color/black_light"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_8sdp">
+
+                    <View
+                        android:layout_width="@dimen/_3sdp"
+                        android:layout_height="@dimen/_14sdp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/vertical_show_line" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:text="Your Ratings"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/rating_movies_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:layout_toStartOf="@id/rating_shows_card"
+                        android:checkable="true"
+                        app:cardBackgroundColor="@color/dark_gray"
+                        app:cardCornerRadius="@dimen/_8sdp"
+                        app:checkedIcon="@null"
+                        app:strokeColor="@color/text_secondary"
+                        app:strokeWidth="1dp">
+
+                        <TextView
+                            android:id="@+id/rating_movies_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:paddingHorizontal="@dimen/_12sdp"
+                            android:paddingVertical="1dp"
+                            android:text="Movies"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/rating_shows_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:checkable="true"
+                        app:cardBackgroundColor="@color/dark_gray"
+                        app:cardCornerRadius="@dimen/_8sdp"
+                        app:checkedIcon="@null"
+                        app:strokeColor="@color/text_secondary"
+                        app:strokeWidth="1dp">
+
+                        <TextView
+                            android:id="@+id/rating_shows_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingHorizontal="@dimen/_12sdp"
+                            android:paddingVertical="1dp"
+                            android:text="TV Shows"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_ratings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_2sdp"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_account_media_poster" />
+
+                <TextView
+                    android:id="@+id/empty_ratings_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_138sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:gravity="center"
+                    android:text="You haven't rated any movie/show yet."
+                    android:textColor="@color/text_secondary"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/ratings_placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_2sdp">
+
+                    <View
+                        android:layout_width="@dimen/_94sdp"
+                        android:layout_height="@dimen/_138sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/poster_bg" />
+
+                    <View
+                        android:layout_width="@dimen/_94sdp"
+                        android:layout_height="@dimen/_138sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/poster_bg" />
+
+                    <View
+                        android:layout_width="@dimen/_94sdp"
+                        android:layout_height="@dimen/_138sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/poster_bg" />
+
+                    <View
+                        android:layout_width="@dimen/_94sdp"
+                        android:layout_height="@dimen/_138sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/poster_bg" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:background="@color/black_light"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_8sdp">
+
+                    <View
+                        android:layout_width="@dimen/_3sdp"
+                        android:layout_height="@dimen/_14sdp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/vertical_show_line" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:text="Your Favourites"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/favourite_movies_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:layout_toStartOf="@id/favourite_shows_card"
+                        android:checkable="true"
+                        app:cardBackgroundColor="@color/dark_gray"
+                        app:cardCornerRadius="@dimen/_8sdp"
+                        app:checkedIcon="@null"
+                        app:strokeColor="@color/text_secondary"
+                        app:strokeWidth="1dp">
+
+                        <TextView
+                            android:id="@+id/favourite_movies_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingHorizontal="@dimen/_12sdp"
+                            android:paddingVertical="1dp"
+                            android:text="Movies"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/favourite_shows_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:checkable="true"
+                        app:cardBackgroundColor="@color/dark_gray"
+                        app:cardCornerRadius="@dimen/_8sdp"
+                        app:checkedIcon="@null"
+                        app:strokeColor="@color/text_secondary"
+                        app:strokeWidth="1dp">
+
+                        <TextView
+                            android:id="@+id/favourite_shows_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingHorizontal="@dimen/_12sdp"
+                            android:paddingVertical="1dp"
+                            android:text="TV Shows"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_favourites"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_2sdp"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_poster" />
+
+                <TextView
+                    android:id="@+id/empty_favourites_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_138sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:gravity="center"
+                    android:text="You haven't marked any movie/show as favourite."
+                    android:textColor="@color/text_secondary"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/favourite_placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_2sdp">
+
+                    <View
+                        android:layout_width="@dimen/_94sdp"
+                        android:layout_height="@dimen/_138sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/poster_bg" />
+
+                    <View
+                        android:layout_width="@dimen/_94sdp"
+                        android:layout_height="@dimen/_138sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/poster_bg" />
+
+                    <View
+                        android:layout_width="@dimen/_94sdp"
+                        android:layout_height="@dimen/_138sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/poster_bg" />
+
+                    <View
+                        android:layout_width="@dimen/_94sdp"
+                        android:layout_height="@dimen/_138sdp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/poster_bg" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCredits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_24sdp"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_16sdp"
+                android:text=""
+                android:textColor="@color/divider"
+                android:textColorLink="@color/divider_2" />
+
+            <TextView
+                android:id="@+id/tvVersionName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:gravity="center"
+                android:textColor="@color/divider"
+                tools:text="Version: v1.1.0" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

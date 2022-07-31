@@ -47,10 +47,9 @@
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:text="See all"
             android:textAllCaps="false"
-            android:textColor="@color/red" />
+            android:textColor="@color/colorPrimary" />
 
     </RelativeLayout>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_posters_list"
