@@ -3,35 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_movies">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_movies"
         android:name="info.firozansari.movieapp.presentation.home.HomeFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_navigation_home_to_detailFragment"
+            android:id="@+id/action_navigation_movies_to_detailFragment"
             app:destination="@id/detailFragment" />
         <action
-            android:id="@+id/action_navigation_home_to_movieListFragment"
+            android:id="@+id/action_navigation_movies_to_movieListFragment"
             app:destination="@id/movieListFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/slide_out_right" />
         <action
-            android:id="@+id/action_navigation_home_to_playerFragment"
+            android:id="@+id/action_navigation_movies_to_playerFragment"
             app:destination="@id/playerFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/slide_out_right" />
-<!--        <action-->
-<!--            android:id="@+id/action_navigation_home_to_selectGenresDialogFragment"-->
-<!--            app:destination="@id/selectGenresDialogFragment" />-->
         <action
-            android:id="@+id/action_navigation_home_to_navigation_account"
+            android:id="@+id/action_navigation_movies_to_navigation_account"
             app:destination="@id/navigation_account" />
     </fragment>
 
@@ -63,19 +60,25 @@
             app:destination="@id/playerFragment" />
     </fragment>
 
-<!--    <fragment-->
-<!--        android:id="@+id/navigation_coming_soon"-->
-<!--        android:name="info.firozansari.movieapp.presentation.coming_soon.ComingSoonFragment"-->
-<!--        android:label="@string/title_coming_soon"-->
-<!--        tools:layout="@layout/fragment_coming_soon">-->
-<!--        <action-->
-<!--            android:id="@+id/action_navigation_coming_soon_to_playerFragment"-->
-<!--            app:destination="@id/playerFragment"-->
-<!--            app:enterAnim="@android:anim/fade_in"-->
-<!--            app:exitAnim="@anim/pop_up"-->
-<!--            app:popEnterAnim="@android:anim/fade_in"-->
-<!--            app:popExitAnim="@android:anim/fade_out" />-->
-<!--    </fragment>-->
+    <fragment
+        android:id="@+id/navigation_tv"
+        android:name="info.firozansari.movieapp.presentation.tvlist.TvListFragment"
+        android:label="@string/title_tv"
+        tools:layout="@layout/fragment_tv_list">
+        <action
+            android:id="@+id/action_navigation_tv_to_playerFragment"
+            app:destination="@id/playerFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/pop_up"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <argument
+            android:name="mediaCategory"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_movieListFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_account"
