@@ -25,7 +25,7 @@
                 android:layout_width="@dimen/_38sdp"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_movieland_foreground" />
+                android:src="@drawable/ic_movie_foreground" />
 
             <TextView
                 android:id="@+id/tv_shows_text"
