@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavView.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { navContrl, destination, _ ->
 
-            if (navContrl.previousBackStackEntry?.destination?.id == R.id.navigation_home ||
+            if (navContrl.previousBackStackEntry?.destination?.id == R.id.navigation_movies ||
                 navContrl.previousBackStackEntry?.destination?.id == R.id.navigation_search ||
                 navContrl.previousBackStackEntry?.destination?.id == R.id.navigation_account
             ) {

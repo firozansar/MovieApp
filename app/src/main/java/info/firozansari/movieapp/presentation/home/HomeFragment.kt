@@ -7,46 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isGone
-import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import coil.load
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
 import info.firozansari.movieapp.databinding.FragmentHomeBinding
-import info.firozansari.movieapp.domain.requests.AddToWatchListRequest
 import info.firozansari.movieapp.domain.responses.MovieResult
-import info.firozansari.movieapp.presentation.Config.ANDROID
-import info.firozansari.movieapp.presentation.Config.DIMEN
-import info.firozansari.movieapp.presentation.Config.GENRES_ID_LIST_KEY
 import info.firozansari.movieapp.presentation.Config.IS_IT_A_MOVIE_KEY
 import info.firozansari.movieapp.presentation.Config.MEDIA_ID_KEY
-import info.firozansari.movieapp.presentation.Config.MEDIA_IMAGE_KEY
-import info.firozansari.movieapp.presentation.Config.MEDIA_OVERVIEW_KEY
 import info.firozansari.movieapp.presentation.Config.MEDIA_PLAY_REQUEST_KEY
-import info.firozansari.movieapp.presentation.Config.MEDIA_RATING_KEY
-import info.firozansari.movieapp.presentation.Config.MEDIA_SEND_REQUEST_KEY
-import info.firozansari.movieapp.presentation.Config.MEDIA_TITLE_KEY
-import info.firozansari.movieapp.presentation.Config.MEDIA_YEAR_KEY
-import info.firozansari.movieapp.presentation.Config.MOVIE
-import info.firozansari.movieapp.presentation.Config.STATUS_BAR_HEIGHT
-import info.firozansari.movieapp.presentation.Config.TMDB_IMAGE_BASE_URL_W780
-import info.firozansari.movieapp.presentation.Config.TRENDING_MOVIES
-import info.firozansari.movieapp.presentation.Config.TRENDING_TV_SHOWS
-import info.firozansari.movieapp.presentation.util.Helpers.getMovieGenreListFromIds
 import info.firozansari.movieapp.presentation.util.Resource
 import info.firozansari.movieapp.presentation.util.safeFragmentNavigation
 import info.firozansari.movieapp.presentation.util.showSnackBar
-import kotlinx.coroutines.flow.first
-import kotlin.math.min
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -86,9 +63,9 @@ class HomeFragment : Fragment() {
                 openMediaDetailsBSD(it)
             },
             onSeeAllBtnClick = {
-                val action =
-                    HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = it)
-                navController.navigate(action)
+//                val action =
+//                    HomeFragmentDirections.actionNavigationHomeToMovieListFragment(mediaCategory = it)
+//                navController.navigate(action)
             },
             onBollywoodPosterClick = {
                 parentFragmentManager.setFragmentResult(
@@ -100,8 +77,8 @@ class HomeFragment : Fragment() {
                 )
                 safeFragmentNavigation(
                     navController = navController,
-                    currentFragmentId = R.id.navigation_home,
-                    actionId = R.id.action_navigation_home_to_playerFragment
+                    currentFragmentId = R.id.navigation_movies,
+                    actionId = R.id.action_navigation_movies_to_playerFragment
                 )
             }
         )

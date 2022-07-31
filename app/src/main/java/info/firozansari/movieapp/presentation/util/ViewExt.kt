@@ -27,14 +27,14 @@ fun View.showSnackBar(
     actionMsg: String? = null,
     action: (() -> Unit)? = null
 ) {
-    Snackbar.make(this, message, length).apply {
-        actionMsg?.let {
-            setAction(actionMsg) {
-                action?.invoke()
-            }
-        }
-        show()
-    }
+//    Snackbar.make(this, message, length).apply {
+//        actionMsg?.let {
+//            setAction(actionMsg) {
+//                action?.invoke()
+//            }
+//        }
+//        show()
+//    }
 }
 
 fun Fragment.showSnackBar(

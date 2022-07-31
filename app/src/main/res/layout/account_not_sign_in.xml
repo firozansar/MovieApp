@@ -40,21 +40,10 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/intro_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Sign in"
-            android:textAlignment="center"
-            android:textColor="@color/text_primary"
-            android:textSize="@dimen/_14ssp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/movie_land_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Movie"
+            android:text="Movies"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/_28ssp" />
 
@@ -64,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_24sdp"
             android:gravity="center"
-            android:text="Unlock features like maintaining own movies list and rate movies, etc"
+            android:text="@string/sign_in_to_maintain"
             android:textColor="@color/text_secondary"
             android:textSize="@dimen/_14ssp" />
 
@@ -74,15 +63,10 @@
         android:id="@+id/account_sign_in_btn"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_40sdp"
-        android:backgroundTint="@color/colorAccent"
-        android:paddingEnd="@dimen/_30sdp"
-        android:text="Sign in now"
-        android:textColor="@color/black"
-        app:icon="@drawable/ic_movie_foreground"
-        app:iconGravity="start"
-        app:iconPadding="@dimen/_12sdp"
-        app:iconSize="@dimen/_38sdp"
-        app:iconTint="@color/black"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/sign_in"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
