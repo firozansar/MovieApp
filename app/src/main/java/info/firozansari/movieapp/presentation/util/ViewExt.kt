@@ -27,19 +27,19 @@ fun View.showSnackBar(
     actionMsg: String? = null,
     action: (() -> Unit)? = null
 ) {
-    Snackbar.make(this, message, length).apply {
-        actionMsg?.let {
-            setAction(actionMsg) {
-                action?.invoke()
-            }
-        }
-        show()
-    }
+//    Snackbar.make(this, message, length).apply {
+//        actionMsg?.let {
+//            setAction(actionMsg) {
+//                action?.invoke()
+//            }
+//        }
+//        show()
+//    }
 }
 
 fun Fragment.showSnackBar(
     message: String,
-    length: Int = Snackbar.LENGTH_LONG,
+    length: Int = Snackbar.LENGTH_SHORT,
     actionMsg: String? = null,
     action: (() -> Unit)? = null
 ) = requireView().showSnackBar(

@@ -137,10 +137,12 @@ class AuthActivity : AppCompatActivity() {
                                 authViewModel.getUserDetail(sessionId = sessionResponse.data.sessionId)
                                 authViewModel.userAccount.observe(this@AuthActivity) {
                                     when (it) {
-                                        is Resource.Error -> Toast.makeText(
-                                            this, "Something went wrong",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
+                                        is Resource.Error -> {
+//                                            Toast.makeText(
+//                                                this, "Something went wrong",
+//                                                Toast.LENGTH_SHORT
+//                                            ).show()
+                                        }
                                         // is Resource.Loading -> TODO()
                                         is Resource.Success -> {
                                             authViewModel.saveAccountId(accountId = it.data!!.id)

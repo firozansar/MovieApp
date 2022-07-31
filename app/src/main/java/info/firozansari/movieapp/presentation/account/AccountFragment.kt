@@ -86,11 +86,11 @@ class AccountFragment : Fragment() {
         authViewModel.watchList.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Error -> {
-                    showSnackBar(
-                        message = it.message!!,
-                        length = Snackbar.LENGTH_INDEFINITE,
-                        actionMsg = "Retry"
-                    ) { fetchLists(accountId = _accountId!!, sessionId = _sessionId!!) }
+//                    showSnackBar(
+//                        message = it.message!!,
+//                        length = Snackbar.LENGTH_INDEFINITE,
+//                        actionMsg = "Retry"
+//                    ) { fetchLists(accountId = _accountId!!, sessionId = _sessionId!!) }
                 }
                 is Resource.Loading -> binding.apply {
                     watchlistPlaceholder.isGone = false
@@ -115,8 +115,8 @@ class AccountFragment : Fragment() {
         authViewModel.ratingList.observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Error -> {
-                    val message = it.message ?: "Something went wrong!"
-                    showSnackBar(message)
+//                    val message = it.message ?: "Something went wrong!"
+//                    showSnackBar(message)
                 }
                 is Resource.Loading -> binding.apply {
                     ratingsPlaceholder.isGone = false
