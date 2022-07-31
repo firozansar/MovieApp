@@ -1,6 +1,6 @@
 package info.firozansari.movieapp.presentation.util
 
-import info.firozansari.movieapp.domain.model.responses.Genre
+import info.firozansari.movieapp.domain.responses.Genre
 
 object Helpers {
 

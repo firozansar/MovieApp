@@ -16,8 +16,8 @@ import info.firozansari.movieapp.data.paging.PopularTvPagingSource
 import info.firozansari.movieapp.data.paging.TopRatedPagingSource
 import info.firozansari.movieapp.data.paging.TrendingMediaPagingSource
 import info.firozansari.movieapp.domain.requests.AddToFavouriteRequest
-import info.firozansari.movieapp.domain.model.requests.AddToWatchListRequest
-import info.firozansari.movieapp.domain.model.requests.MediaRatingRequest
+import info.firozansari.movieapp.domain.requests.AddToWatchListRequest
+import info.firozansari.movieapp.domain.requests.MediaRatingRequest
 import info.firozansari.movieapp.domain.responses.MovieResult
 import info.firozansari.movieapp.presentation.Config.MOVIE
 import info.firozansari.movieapp.presentation.Config.TV

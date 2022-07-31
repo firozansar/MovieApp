@@ -1,12 +1,12 @@
 package info.firozansari.movieapp.data.api
 
 import info.firozansari.movieapp.domain.requests.AddToFavouriteRequest
-import info.firozansari.movieapp.domain.model.requests.AddToWatchListRequest
-import info.firozansari.movieapp.domain.model.requests.MediaRatingRequest
-import info.firozansari.movieapp.domain.model.responses.AccountDetailsResponse
-import info.firozansari.movieapp.domain.model.responses.ActorFilmography
-import info.firozansari.movieapp.domain.model.responses.MediaCastResponse
-import info.firozansari.movieapp.domain.model.responses.MovieDetailResponse
+import info.firozansari.movieapp.domain.requests.AddToWatchListRequest
+import info.firozansari.movieapp.domain.requests.MediaRatingRequest
+import info.firozansari.movieapp.domain.responses.AccountDetailsResponse
+import info.firozansari.movieapp.domain.responses.ActorFilmography
+import info.firozansari.movieapp.domain.responses.MediaCastResponse
+import info.firozansari.movieapp.domain.responses.MovieDetailResponse
 import info.firozansari.movieapp.domain.responses.MovieListResponse
 import info.firozansari.movieapp.domain.responses.SessionResponse
 import info.firozansari.movieapp.domain.responses.TvEpisodeDetailResponse

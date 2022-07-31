@@ -1,7 +1,7 @@
 package info.firozansari.movieapp.data.api
 
-import info.firozansari.movieapp.domain.model.requests.RequestToken
-import info.firozansari.movieapp.domain.model.responses.AccessTokenResponse
+import info.firozansari.movieapp.domain.requests.RequestToken
+import info.firozansari.movieapp.domain.responses.AccessTokenResponse
 import info.firozansari.movieapp.domain.responses.RequestTokenResponse
 import retrofit2.Response
 import retrofit2.http.Body

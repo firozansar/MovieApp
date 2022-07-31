@@ -7,9 +7,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import info.firozansari.movieapp.data.repository.AuthRepository
 import info.firozansari.movieapp.data.repository.MoviesRepository
 import info.firozansari.movieapp.domain.requests.AddToFavouriteRequest
-import info.firozansari.movieapp.domain.model.requests.AddToWatchListRequest
-import info.firozansari.movieapp.domain.model.responses.AccessTokenResponse
-import info.firozansari.movieapp.domain.model.responses.AccountDetailsResponse
+import info.firozansari.movieapp.domain.requests.AddToWatchListRequest
+import info.firozansari.movieapp.domain.responses.AccessTokenResponse
+import info.firozansari.movieapp.domain.responses.AccountDetailsResponse
 import info.firozansari.movieapp.domain.responses.MovieListResponse
 import info.firozansari.movieapp.domain.responses.MovieResult
 import info.firozansari.movieapp.domain.responses.RequestTokenResponse

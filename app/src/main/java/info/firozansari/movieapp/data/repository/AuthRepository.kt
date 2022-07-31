@@ -2,8 +2,8 @@ package info.firozansari.movieapp.data.repository
 
 import info.firozansari.movieapp.data.api.TMDBApiServiceV3
 import info.firozansari.movieapp.data.api.TMDBApiServiceV4
-import info.firozansari.movieapp.domain.model.requests.RequestToken
-import info.firozansari.movieapp.domain.model.responses.AccessTokenResponse
+import info.firozansari.movieapp.domain.requests.RequestToken
+import info.firozansari.movieapp.domain.responses.AccessTokenResponse
 import info.firozansari.movieapp.domain.responses.MovieListResponse
 import info.firozansari.movieapp.domain.responses.RequestTokenResponse
 import info.firozansari.movieapp.domain.responses.SessionResponse

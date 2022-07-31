@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import info.firozansari.movieapp.databinding.ItemEpisodeBinding
-import info.firozansari.movieapp.domain.model.responses.Episode
+import info.firozansari.movieapp.domain.responses.Episode
 import info.firozansari.movieapp.presentation.Config.TMDB_IMAGE_BASE_URL_W500
 
 class TvShowEpisodesAdapter(

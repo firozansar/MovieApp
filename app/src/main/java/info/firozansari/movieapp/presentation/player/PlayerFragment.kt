@@ -27,9 +27,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
 import info.firozansari.movieapp.databinding.FragmentPlayerBinding
 import info.firozansari.movieapp.domain.requests.AddToFavouriteRequest
-import info.firozansari.movieapp.domain.model.requests.AddToWatchListRequest
-import info.firozansari.movieapp.domain.model.responses.Cast
-import info.firozansari.movieapp.domain.model.responses.MovieDetailResponse
+import info.firozansari.movieapp.domain.requests.AddToWatchListRequest
+import info.firozansari.movieapp.domain.responses.Cast
+import info.firozansari.movieapp.domain.responses.MovieDetailResponse
 import info.firozansari.movieapp.domain.responses.Season
 import info.firozansari.movieapp.domain.responses.TvShowDetailsResponse
 import info.firozansari.movieapp.domain.responses.VideoResult

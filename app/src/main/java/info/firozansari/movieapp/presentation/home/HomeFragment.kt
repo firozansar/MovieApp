@@ -22,7 +22,7 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
 import info.firozansari.movieapp.databinding.FragmentHomeBinding
-import info.firozansari.movieapp.domain.model.requests.AddToWatchListRequest
+import info.firozansari.movieapp.domain.requests.AddToWatchListRequest
 import info.firozansari.movieapp.domain.responses.MovieResult
 import info.firozansari.movieapp.presentation.Config.ANDROID
 import info.firozansari.movieapp.presentation.Config.DIMEN
