@@ -12,7 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import info.firozansari.movieapp.R
 import info.firozansari.movieapp.databinding.SeasonPickerDialogBinding
-import info.firozansari.movieapp.domain.model.responses.Season
+import info.firozansari.movieapp.domain.responses.Season
 import info.firozansari.movieapp.presentation.Config.CURRENT_SEASON_POSITION
 import info.firozansari.movieapp.presentation.Config.SEASONS_LIST_REQUEST_KEY
 import info.firozansari.movieapp.presentation.Config.SEASON_LIST

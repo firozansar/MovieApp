@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import info.firozansari.movieapp.databinding.ItemPosterBinding
 import info.firozansari.movieapp.databinding.ItemPosterListBinding
-import info.firozansari.movieapp.domain.model.responses.MovieResult
+import info.firozansari.movieapp.domain.responses.MovieResult
 import info.firozansari.movieapp.presentation.Config.TMDB_POSTER_IMAGE_BASE_URL_W342
 
 class HorizontalAdapter(

@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.databinding.ActivityAuthBinding
-import info.firozansari.movieapp.domain.model.responses.RequestTokenResponse
-import info.firozansari.movieapp.domain.model.responses.SessionResponse
+import info.firozansari.movieapp.domain.responses.RequestTokenResponse
+import info.firozansari.movieapp.domain.responses.SessionResponse
 import info.firozansari.movieapp.presentation.Config.TMDB_AUTHENTICATION_WEB_PAGE_REDIRECT_URL
 import info.firozansari.movieapp.presentation.MainActivity
 import info.firozansari.movieapp.presentation.util.Resource

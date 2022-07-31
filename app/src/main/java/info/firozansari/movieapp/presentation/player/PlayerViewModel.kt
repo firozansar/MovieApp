@@ -6,16 +6,16 @@ import androidx.lifecycle.viewModelScope
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import info.firozansari.movieapp.data.repository.MoviesRepository
-import info.firozansari.movieapp.domain.model.requests.AddToFavouriteRequest
-import info.firozansari.movieapp.domain.model.requests.AddToWatchListRequest
-import info.firozansari.movieapp.domain.model.requests.MediaRatingRequest
-import info.firozansari.movieapp.domain.model.responses.MediaCastResponse
-import info.firozansari.movieapp.domain.model.responses.MovieDetailResponse
-import info.firozansari.movieapp.domain.model.responses.MovieListResponse
-import info.firozansari.movieapp.domain.model.responses.TvSeasonDetailResponse
-import info.firozansari.movieapp.domain.model.responses.TvShowDetailsResponse
-import info.firozansari.movieapp.domain.model.responses.TvShowExternalIdsResponse
-import info.firozansari.movieapp.domain.model.responses.WatchProvidersResponse
+import info.firozansari.movieapp.domain.requests.AddToFavouriteRequest
+import info.firozansari.movieapp.domain.requests.AddToWatchListRequest
+import info.firozansari.movieapp.domain.requests.MediaRatingRequest
+import info.firozansari.movieapp.domain.responses.MediaCastResponse
+import info.firozansari.movieapp.domain.responses.MovieDetailResponse
+import info.firozansari.movieapp.domain.responses.MovieListResponse
+import info.firozansari.movieapp.domain.responses.TvSeasonDetailResponse
+import info.firozansari.movieapp.domain.responses.TvShowDetailsResponse
+import info.firozansari.movieapp.domain.responses.TvShowExternalIdsResponse
+import info.firozansari.movieapp.domain.responses.WatchProvidersResponse
 import info.firozansari.movieapp.presentation.BaseViewModel
 import info.firozansari.movieapp.presentation.util.Resource
 import kotlinx.coroutines.launch

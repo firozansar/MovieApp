@@ -17,7 +17,7 @@
         android:id="@+id/intro_image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_432sdp"
-        android:src="@drawable/img_intro_one"
+        android:src="@drawable/splash_big"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent" />
 

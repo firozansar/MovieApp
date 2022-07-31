@@ -1,6 +1,6 @@
 package info.firozansari.movieapp.data.db
 
-import info.firozansari.movieapp.MockTestUtil.Companion.mockMovieList
+import info.firozansari.movieapp.data.db.MockTestUtil.Companion.mockMovieList
 import org.junit.Test
 
 class FavouriteMoviesDAOTest : LocalDatabase() {

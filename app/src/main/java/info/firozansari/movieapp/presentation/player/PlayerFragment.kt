@@ -1,6 +1,5 @@
 package info.firozansari.movieapp.presentation.player
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -8,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.RatingBar
 import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
 import androidx.browser.customtabs.CustomTabsIntent
@@ -28,14 +26,13 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.Abs
 import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
 import info.firozansari.movieapp.databinding.FragmentPlayerBinding
-import info.firozansari.movieapp.domain.model.requests.AddToFavouriteRequest
-import info.firozansari.movieapp.domain.model.requests.AddToWatchListRequest
-import info.firozansari.movieapp.domain.model.requests.MediaRatingRequest
-import info.firozansari.movieapp.domain.model.responses.Cast
-import info.firozansari.movieapp.domain.model.responses.MovieDetailResponse
-import info.firozansari.movieapp.domain.model.responses.Season
-import info.firozansari.movieapp.domain.model.responses.TvShowDetailsResponse
-import info.firozansari.movieapp.domain.model.responses.VideoResult
+import info.firozansari.movieapp.domain.requests.AddToFavouriteRequest
+import info.firozansari.movieapp.domain.requests.AddToWatchListRequest
+import info.firozansari.movieapp.domain.responses.Cast
+import info.firozansari.movieapp.domain.responses.MovieDetailResponse
+import info.firozansari.movieapp.domain.responses.Season
+import info.firozansari.movieapp.domain.responses.TvShowDetailsResponse
+import info.firozansari.movieapp.domain.responses.VideoResult
 import info.firozansari.movieapp.presentation.Config.CURRENT_SEASON_POSITION
 import info.firozansari.movieapp.presentation.Config.GENRES_ID_LIST_KEY
 import info.firozansari.movieapp.presentation.Config.IMDB_BASE_URL
@@ -61,7 +58,6 @@ import info.firozansari.movieapp.presentation.Config.YOUTUBE
 import info.firozansari.movieapp.presentation.Config.YOUTUBE_VIDEO_URL
 import info.firozansari.movieapp.presentation.home.HorizontalAdapter
 import info.firozansari.movieapp.presentation.home.RecommendationsAdapter
-import info.firozansari.movieapp.presentation.player.PlayerViewModel
 import info.firozansari.movieapp.presentation.util.ErrorType
 import info.firozansari.movieapp.presentation.util.Resource
 import info.firozansari.movieapp.presentation.util.formatMediaDate

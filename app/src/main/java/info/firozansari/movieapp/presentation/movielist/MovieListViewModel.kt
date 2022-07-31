@@ -10,7 +10,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import info.firozansari.movieapp.data.repository.MoviesRepository
-import info.firozansari.movieapp.domain.model.responses.MovieResult
+import info.firozansari.movieapp.domain.responses.MovieResult
 import info.firozansari.movieapp.presentation.BaseViewModel
 import info.firozansari.movieapp.presentation.Config.ANIME_SERIES
 import info.firozansari.movieapp.presentation.Config.BOLLYWOOD_MOVIES

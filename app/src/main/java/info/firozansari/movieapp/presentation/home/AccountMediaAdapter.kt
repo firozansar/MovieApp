@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import info.firozansari.movieapp.databinding.ItemAccountMediaPosterBinding
 import com.google.android.material.snackbar.Snackbar
-import info.firozansari.movieapp.domain.model.responses.MovieResult
+import info.firozansari.movieapp.domain.responses.MovieResult
 import info.firozansari.movieapp.presentation.Config.TMDB_POSTER_IMAGE_BASE_URL_W342
 import info.firozansari.movieapp.presentation.util.showSnackBar
 
