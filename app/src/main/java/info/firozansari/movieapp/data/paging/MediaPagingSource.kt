@@ -3,8 +3,8 @@ package info.firozansari.movieapp.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import info.firozansari.movieapp.data.api.TMDBApiServiceV3
-import info.firozansari.movieapp.domain.model.responses.MovieListResponse
-import info.firozansari.movieapp.domain.model.responses.MovieResult
+import info.firozansari.movieapp.domain.responses.MovieListResponse
+import info.firozansari.movieapp.domain.responses.MovieResult
 import retrofit2.Response
 
 class TrendingMediaPagingSource(

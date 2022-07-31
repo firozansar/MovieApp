@@ -2,11 +2,11 @@ package info.firozansari.movieapp.data.repository
 
 import info.firozansari.movieapp.data.api.TMDBApiServiceV3
 import info.firozansari.movieapp.data.api.TMDBApiServiceV4
-import info.firozansari.movieapp.domain.model.requests.RequestToken
-import info.firozansari.movieapp.domain.model.responses.AccessTokenResponse
-import info.firozansari.movieapp.domain.model.responses.MovieListResponse
-import info.firozansari.movieapp.domain.model.responses.RequestTokenResponse
-import info.firozansari.movieapp.domain.model.responses.SessionResponse
+import info.firozansari.movieapp.domain.requests.RequestToken
+import info.firozansari.movieapp.domain.responses.AccessTokenResponse
+import info.firozansari.movieapp.domain.responses.MovieListResponse
+import info.firozansari.movieapp.domain.responses.RequestTokenResponse
+import info.firozansari.movieapp.domain.responses.SessionResponse
 import info.firozansari.movieapp.presentation.Config.MOVIE_APP_URL
 import info.firozansari.movieapp.presentation.util.Resource
 import info.firozansari.movieapp.presentation.util.SessionPrefs

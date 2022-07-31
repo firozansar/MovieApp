@@ -28,17 +28,17 @@ class IntroPagerAdapter : RecyclerView.Adapter<IntroPagerAdapter.ViewHolder>() {
                 0 -> updateIntro(
                     title = "Trailers & info of millions of movies, Tv shows",
                     description = "Get information about any movie/show at no price.",
-                    imageDrawable = R.drawable.img_intro_one
+                    imageDrawable = R.drawable.splash_big
                 )
                 1 -> updateIntro(
                     title = "Search and discover Movies, TV shows",
                     description = "Search or discover movies/shows by genres, get cast, find what's trendy from millions of data",
-                    imageDrawable = R.drawable.img_intro_two
+                    imageDrawable = R.drawable.splash_small
                 )
                 2 -> updateIntro(
                     title = "Liked something... want to watch it later ?",
                     description = "Create your own watchlist, favourite list, or rate any movie/show",
-                    imageDrawable = R.drawable.img_intro_three
+                    imageDrawable = R.drawable.splash_small
                 )
             }
         }

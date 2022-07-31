@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import info.firozansari.movieapp.R
 import info.firozansari.movieapp.databinding.ItemPickerOptionBinding
-import info.firozansari.movieapp.domain.model.responses.Season
+import info.firozansari.movieapp.domain.responses.Season
 
 class SeasonPickerAdapter(
     private val selectedItemPosition: Int,

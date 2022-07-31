@@ -65,7 +65,7 @@
 
 <!--    <fragment-->
 <!--        android:id="@+id/navigation_coming_soon"-->
-<!--        android:name="com.example.movieland.ui.coming_soon.ComingSoonFragment"-->
+<!--        android:name="info.firozansari.movieapp.presentation.coming_soon.ComingSoonFragment"-->
 <!--        android:label="@string/title_coming_soon"-->
 <!--        tools:layout="@layout/fragment_coming_soon">-->
 <!--        <action-->
@@ -116,7 +116,7 @@
         android:label="SeasonPickerDialogFragment" />
 <!--    <dialog-->
 <!--        android:id="@+id/selectGenresDialogFragment"-->
-<!--        android:name="com.example.movieland.ui.genres.GenresDialogFragment"-->
+<!--        android:name="info.firozansari.movieapp.presentation.genres.GenresDialogFragment"-->
 <!--        android:label="SelectGenresDialogFragment">-->
 <!--        <action-->
 <!--            android:id="@+id/action_selectGenresDialogFragment_to_detailFragment"-->
@@ -124,7 +124,7 @@
 <!--    </dialog>-->
 <!--    <dialog-->
 <!--        android:id="@+id/castDetailsFragment"-->
-<!--        android:name="com.example.movieland.ui.cast.CastDetailsFragment"-->
+<!--        android:name="info.firozansari.movieapp.presentation.cast.CastDetailsFragment"-->
 <!--        android:label="CastDetailsFragment">-->
 <!--        <action-->
 <!--            android:id="@+id/action_castKnownForFragment_to_detailFragment"-->

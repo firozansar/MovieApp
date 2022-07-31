@@ -21,7 +21,7 @@
             android:scaleType="centerCrop"
             android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/_24sdp"
-            tools:src="@drawable/img_intro_one" />
+            tools:src="@drawable/splash_big" />
 
         <View
             android:layout_width="match_parent"

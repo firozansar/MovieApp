@@ -37,7 +37,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/poster_bg"
                         android:scaleType="centerCrop"
-                        tools:src="@drawable/img_intro_two" />
+                        tools:src="@drawable/splash_small" />
 
                     <ImageView
                         android:id="@+id/close_detail_btn"

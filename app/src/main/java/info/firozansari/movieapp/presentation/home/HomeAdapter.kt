@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import info.firozansari.movieapp.data.api.response.HomeFeed
 import info.firozansari.movieapp.databinding.ItemFeedHorizontalListBinding
-import info.firozansari.movieapp.domain.model.responses.MovieResult
+import info.firozansari.movieapp.domain.responses.MovieResult
 
 class HomeAdapter(
     private var onPosterClick: (movieResult: MovieResult) -> Unit,

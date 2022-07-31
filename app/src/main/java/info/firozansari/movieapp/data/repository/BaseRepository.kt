@@ -1,7 +1,7 @@
 package info.firozansari.movieapp.data.repository
 
 import com.squareup.moshi.Moshi
-import info.firozansari.movieapp.domain.model.responses.TmdbErrorResponse
+import info.firozansari.movieapp.domain.responses.TmdbErrorResponse
 import info.firozansari.movieapp.presentation.util.ErrorType
 import info.firozansari.movieapp.presentation.util.Resource
 import info.firozansari.movieapp.presentation.util.SessionPrefs
