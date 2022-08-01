@@ -29,7 +29,7 @@ class TvListFragment : Fragment() {
   private var _binding: FragmentTvListBinding? = null
   private val binding get() = _binding!!
   private lateinit var adapter: MediaListPagerAdapter
-  private val args: TvListFragmentArgs by navArgs()
+  private val tv = "TV"
 
   @Inject
   lateinit var tvListViewModelFactory: TvListViewModel.TrendingViewModelFactory
@@ -37,7 +37,7 @@ class TvListFragment : Fragment() {
   private val viewModel: TvListViewModel by viewModels {
     TvListViewModel.providesFactory(
       assistedFactory = tvListViewModelFactory,
-      mediaCategory = args.mediaCategory
+      mediaCategory = tv
     )
   }
 
@@ -55,7 +55,7 @@ class TvListFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     navController = findNavController()
-    binding.toolbar.title = args.mediaCategory
+    binding.toolbar.title = tv
     setUpRecyclerViewAndNav()
 
     viewModel.categoryWiseMediaList.observe(viewLifecycleOwner) {
@@ -71,7 +71,7 @@ class TvListFragment : Fragment() {
     }
 
     adapter = MediaListPagerAdapter(
-      onPosterClick = if (args.mediaCategory != Config.BOLLYWOOD_MOVIES) {
+      onPosterClick = if (tv != Config.BOLLYWOOD_MOVIES) {
         {
           // callback of Poster click
           parentFragmentManager.setFragmentResult(
@@ -90,8 +90,8 @@ class TvListFragment : Fragment() {
 
           safeFragmentNavigation(
             navController = navController,
-            currentFragmentId = R.id.movieListFragment,
-            actionId = R.id.action_movieListFragment_to_detailFragment
+            currentFragmentId = R.id.navigation_tv,
+            actionId = R.id.action_navigation_tv_to_tvDetailFragment
           )
         }
       } else {
@@ -106,8 +106,8 @@ class TvListFragment : Fragment() {
           )
           safeFragmentNavigation(
             navController = navController,
-            currentFragmentId = R.id.movieListFragment,
-            actionId = R.id.action_movieListFragment_to_playerFragment
+            currentFragmentId = R.id.navigation_tv,
+            actionId = R.id.action_navigation_tv_to_tvDetailFragment
           )
         }
       },

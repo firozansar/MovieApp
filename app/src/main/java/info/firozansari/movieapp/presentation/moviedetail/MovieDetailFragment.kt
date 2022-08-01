@@ -1,4 +1,4 @@
-package info.firozansari.movieapp.presentation.movielist
+package info.firozansari.movieapp.presentation.moviedetail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
 import dagger.hilt.android.AndroidEntryPoint
 import info.firozansari.movieapp.R
@@ -33,21 +34,20 @@ import info.firozansari.movieapp.presentation.util.safeFragmentNavigation
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MovieListFragment : Fragment() {
+class MovieDetailFragment : Fragment() {
 
     private var _binding: FragmentMovieListBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: MediaListPagerAdapter
-    private val movies = "Movies"
-
+    private val args: MovieDetailFragmentArgs by navArgs()
 
     @Inject
-    lateinit var movieListViewModelFactory: MovieListViewModel.TrendingViewModelFactory
+    lateinit var movieDetailViewModelFactory: MovieDetailViewModel.TrendingViewModelFactory
 
-    private val viewModel: MovieListViewModel by viewModels {
-        MovieListViewModel.providesFactory(
-            assistedFactory = movieListViewModelFactory,
-            mediaCategory = movies
+    private val viewModel: MovieDetailViewModel by viewModels {
+        MovieDetailViewModel.providesFactory(
+            assistedFactory = movieDetailViewModelFactory,
+            mediaCategory = args.mediaCategory
         )
     }
 
@@ -65,7 +65,7 @@ class MovieListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
-        binding.toolbar.title = movies
+        binding.toolbar.title = args.mediaCategory
         setUpRecyclerViewAndNav()
 
         viewModel.categoryWiseMediaList.observe(viewLifecycleOwner) {
@@ -81,7 +81,7 @@ class MovieListFragment : Fragment() {
         }
 
         adapter = MediaListPagerAdapter(
-            onPosterClick = if (movies != BOLLYWOOD_MOVIES) {
+            onPosterClick = if (args.mediaCategory != BOLLYWOOD_MOVIES) {
                 {
                     // callback of Poster click
                     parentFragmentManager.setFragmentResult(
@@ -100,8 +100,8 @@ class MovieListFragment : Fragment() {
 
                     safeFragmentNavigation(
                         navController = navController,
-                        currentFragmentId = R.id.navigation_movies,
-                        actionId = R.id.action_navigation_movies_to_movieDetailFragment
+                        currentFragmentId = R.id.movieDetailFragment,
+                        actionId = R.id.action_movieDetailFragment_to_playerFragment
                     )
                 }
             } else {
@@ -116,8 +116,8 @@ class MovieListFragment : Fragment() {
                     )
                     safeFragmentNavigation(
                         navController = navController,
-                        currentFragmentId = R.id.navigation_movies,
-                        actionId = R.id.action_navigation_movies_to_movieDetailFragment
+                        currentFragmentId = R.id.movieDetailFragment,
+                        actionId = R.id.action_movieDetailFragment_to_playerFragment
                     )
                 }
             },
