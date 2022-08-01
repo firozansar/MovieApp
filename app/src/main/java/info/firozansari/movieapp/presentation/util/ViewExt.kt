@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+
 fun View.show(display: Boolean) {
     visibility = if (display) View.VISIBLE else View.GONE
 }

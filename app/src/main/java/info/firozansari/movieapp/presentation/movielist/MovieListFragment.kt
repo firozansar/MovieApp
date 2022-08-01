@@ -41,15 +41,15 @@ class MovieListFragment : Fragment() {
     private val movies = "Movies"
 
 
-    @Inject
-    lateinit var movieListViewModelFactory: MovieListViewModel.TrendingViewModelFactory
-
-    private val viewModel: MovieListViewModel by viewModels {
-        MovieListViewModel.providesFactory(
-            assistedFactory = movieListViewModelFactory,
-            mediaCategory = movies
-        )
-    }
+//    @Inject
+//    lateinit var movieListViewModelFactory: MovieListViewModel.TrendingViewModelFactory
+//
+//    private val viewModel: MovieListViewModel by viewModels {
+//        MovieListViewModel.providesFactory(
+//            assistedFactory = movieListViewModelFactory,
+//            mediaCategory = movies
+//        )
+//    }
 
     private lateinit var navController: NavController
 
@@ -68,9 +68,9 @@ class MovieListFragment : Fragment() {
         binding.toolbar.title = movies
         setUpRecyclerViewAndNav()
 
-        viewModel.categoryWiseMediaList.observe(viewLifecycleOwner) {
-            adapter.submitData(lifecycle, it)
-        }
+//        viewModel.categoryWiseMediaList.observe(viewLifecycleOwner) {
+//            adapter.submitData(lifecycle, it)
+//        }
 
         binding.errorLayout.retryButton.setOnClickListener { adapter.retry() }
     }
