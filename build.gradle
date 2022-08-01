@@ -2,7 +2,7 @@
 
 buildscript {
     ext {
-        kotlin_version = "1.7.10"
+        kotlin_version = "1.7.0"
         nav_version = "2.5.0"
         retrofit_version = "2.9.0"
         room_version = "2.4.2"
@@ -38,7 +38,6 @@ buildscript {
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
         classpath "com.diffplug.spotless:spotless-plugin-gradle:$spotless_version"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
     }
 }
 
