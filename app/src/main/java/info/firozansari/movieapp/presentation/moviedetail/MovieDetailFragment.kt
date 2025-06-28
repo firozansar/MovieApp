@@ -42,7 +42,7 @@ class MovieDetailFragment : Fragment() {
     private val args: MovieDetailFragmentArgs by navArgs()
 
     @Inject
-    lateinit var movieDetailViewModelFactory: MovieDetailViewModel.TrendingViewModelFactory
+    lateinit var movieDetailViewModelFactory: MovieDetailViewModel.MovieDetailViewModelFactory
 
     private val viewModel: MovieDetailViewModel by viewModels {
         MovieDetailViewModel.providesFactory(
@@ -97,7 +97,6 @@ class MovieDetailFragment : Fragment() {
                             MEDIA_RATING_KEY to String.format("%.1f", it.voteAverage)
                         )
                     )
-
                     safeFragmentNavigation(
                         navController = navController,
                         currentFragmentId = R.id.movieDetailFragment,
@@ -105,7 +104,6 @@ class MovieDetailFragment : Fragment() {
                     )
                 }
             } else {
-                // BollyWood item click
                 {
                     parentFragmentManager.setFragmentResult(
                         MEDIA_PLAY_REQUEST_KEY,

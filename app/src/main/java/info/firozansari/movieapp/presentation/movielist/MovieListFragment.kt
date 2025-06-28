@@ -83,7 +83,6 @@ class MovieListFragment : Fragment() {
         adapter = MediaListPagerAdapter(
             onPosterClick = if (movies != BOLLYWOOD_MOVIES) {
                 {
-                    // callback of Poster click
                     parentFragmentManager.setFragmentResult(
                         MEDIA_SEND_REQUEST_KEY,
                         bundleOf(
@@ -105,7 +104,6 @@ class MovieListFragment : Fragment() {
                     )
                 }
             } else {
-                // BollyWood item click
                 {
                     parentFragmentManager.setFragmentResult(
                         MEDIA_PLAY_REQUEST_KEY,
@@ -150,12 +148,14 @@ class MovieListFragment : Fragment() {
                         handleExceptions((it.refresh as LoadState.Error).error)
                     if (errorType == ErrorType.NETWORK) {
                         // Network problem
-                        errorLayout.statusTextTitle.text = "Connection Error"
-                        errorLayout.statusTextDesc.text = "Please check your internet connection"
+                        errorLayout.statusTextTitle.text = getString(R.string.connection_error)
+                        errorLayout.statusTextDesc.text =
+                            getString(R.string.please_check_your_internet_connection)
                     } else {
                         // Http error or unknown
-                        errorLayout.statusTextTitle.text = "Oops.. Something went wrong"
-                        errorLayout.statusTextDesc.text = "Please try again"
+                        errorLayout.statusTextTitle.text =
+                            getString(R.string.oops_something_went_wrong)
+                        errorLayout.statusTextDesc.text = getString(R.string.please_try_again)
                     }
                 }
             }

@@ -57,9 +57,7 @@ class TvListViewModel @AssistedInject constructor(
             TOP_RATED_MOVIES -> getTopRatedMovies()
             ANIME_SERIES -> getAnimeSeries()
             BOLLYWOOD_MOVIES -> getBollywoodMovies()
-            else -> categoryWiseMediaList = MutableLiveData<PagingData<MovieResult>>().apply {
-                value = PagingData.empty()
-            }
+            else -> getTrendingTvShows()
         }
     }
 

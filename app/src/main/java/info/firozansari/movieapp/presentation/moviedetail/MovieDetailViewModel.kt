@@ -28,14 +28,14 @@ class MovieDetailViewModel @AssistedInject constructor(
 ) : BaseViewModel(movieRepo) {
 
     @AssistedFactory
-    interface TrendingViewModelFactory {
+    interface MovieDetailViewModelFactory {
         fun create(mediaCategory: String): MovieDetailViewModel
     }
 
     @Suppress("UNCHECKED_CAST")
     companion object {
         fun providesFactory(
-            assistedFactory: TrendingViewModelFactory,
+            assistedFactory: MovieDetailViewModelFactory,
             mediaCategory: String
         ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -54,8 +54,7 @@ class MovieDetailViewModel @AssistedInject constructor(
             POPULAR_MOVIES -> getPopularMovies()
             POPULAR_TV_SHOWS -> getPopularTvShows()
             TOP_RATED_MOVIES -> getTopRatedMovies()
-            ANIME_SERIES -> getAnimeSeries()
-            BOLLYWOOD_MOVIES -> getBollywoodMovies()
+            else -> getTrendingMovies()
         }
     }
 
@@ -83,11 +82,4 @@ class MovieDetailViewModel @AssistedInject constructor(
         categoryWiseMediaList = movieRepo.fetchTopRatedMoviesPaging().cachedIn(viewModelScope)
     }
 
-    private fun getAnimeSeries() {
-        categoryWiseMediaList = movieRepo.fetchAnimeSeriesPaging().cachedIn(viewModelScope)
-    }
-
-    private fun getBollywoodMovies() {
-        categoryWiseMediaList = movieRepo.fetchBollywoodMoviesPaging().cachedIn(viewModelScope)
-    }
 }
