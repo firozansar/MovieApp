@@ -81,44 +81,10 @@ class MovieListFragment : Fragment() {
         }
 
         adapter = MediaListPagerAdapter(
-            onPosterClick = if (movies != BOLLYWOOD_MOVIES) {
-                {
-                    parentFragmentManager.setFragmentResult(
-                        MEDIA_SEND_REQUEST_KEY,
-                        bundleOf(
-                            GENRES_ID_LIST_KEY to it.genreIds,
-                            MEDIA_TITLE_KEY to (it.title ?: it.tvShowName),
-                            IS_IT_A_MOVIE_KEY to !it.title.isNullOrEmpty(),
-                            MEDIA_OVERVIEW_KEY to it.overview,
-                            MEDIA_IMAGE_KEY to it.backdropPath,
-                            MEDIA_YEAR_KEY to (it.releaseDate ?: it.tvShowFirstAirDate),
-                            MEDIA_ID_KEY to it.id,
-                            MEDIA_RATING_KEY to String.format("%.1f", it.voteAverage)
-                        )
-                    )
-
-                    safeFragmentNavigation(
-                        navController = navController,
-                        currentFragmentId = R.id.navigation_movies,
-                        actionId = R.id.action_navigation_movies_to_movieDetailFragment
-                    )
-                }
-            } else {
-                {
-                    parentFragmentManager.setFragmentResult(
-                        MEDIA_PLAY_REQUEST_KEY,
-                        bundleOf(
-                            MEDIA_ID_KEY to it.id,
-                            IS_IT_A_MOVIE_KEY to true
-                        )
-                    )
-                    safeFragmentNavigation(
-                        navController = navController,
-                        currentFragmentId = R.id.navigation_movies,
-                        actionId = R.id.action_navigation_movies_to_movieDetailFragment
-                    )
-                }
-            },
+            onPosterClick = { movieResult ->
+                val bundle = bundleOf("mediaCategory" to movieResult.title)
+                navController.navigate(R.id.action_navigation_movies_to_movieDetailFragment, bundle)
+            }
         )
 
         binding.listRecyclerview.adapter = adapter.withLoadStateHeaderAndFooter(

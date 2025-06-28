@@ -78,7 +78,7 @@ class HomeFragment : Fragment() {
                 safeFragmentNavigation(
                     navController = navController,
                     currentFragmentId = R.id.navigation_movies,
-                    actionId = R.id.action_navigation_movies_to_playerFragment
+                    actionId = R.id.action_navigation_movies_to_movieDetailFragment
                 )
             }
         )
