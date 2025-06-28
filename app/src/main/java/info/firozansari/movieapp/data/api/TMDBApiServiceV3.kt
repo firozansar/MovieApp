@@ -1,5 +1,6 @@
 package info.firozansari.movieapp.data.api
 
+import info.firozansari.movieapp.BuildConfig
 import info.firozansari.movieapp.domain.requests.AddToFavouriteRequest
 import info.firozansari.movieapp.domain.requests.AddToWatchListRequest
 import info.firozansari.movieapp.domain.requests.MediaRatingRequest
@@ -30,34 +31,39 @@ interface TMDBApiServiceV3 {
 
     @GET("3/movie/now_playing")
     suspend fun fetchNowPlayingMovies(
-        @Query("language") lang: String? = "en-US",
-        @Query("page") page: Int = 1
+        @Query("language") lang: String? = "en",
+        @Query("page") page: Int = 1,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/movie/top_rated")
     suspend fun fetchTopRatedMovies(
-        @Query("region") region: String = "IN",
-        @Query("language") lang: String? = "en-US",
-        @Query("page") page: Int = 1
+        @Query("region") region: String = "GB",
+        @Query("language") lang: String? = "en",
+        @Query("page") page: Int = 1,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/movie/popular")
     suspend fun fetchPopularMovies(
-        @Query("language") lang: String? = "en-US",
-        @Query("page") page: Int = 1
+        @Query("language") lang: String? = "en",
+        @Query("page") page: Int = 1,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/tv/popular")
     suspend fun fetchPopularTvShows(
-        @Query("language") lang: String? = "en-US",
-        @Query("page") page: Int = 1
+        @Query("language") lang: String? = "en",
+        @Query("page") page: Int = 1,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/movie/upcoming")
     suspend fun fetchUpcomingMovies(
-        @Query("language") lang: String? = "en-US",
+        @Query("language") lang: String? = "en",
         @Query("page") page: Int = 1,
-        @Query("region") region: String = "US"
+        @Query("region") region: String = "GB",
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     // movie/451048?append_to_response=videos
@@ -65,50 +71,57 @@ interface TMDBApiServiceV3 {
     suspend fun fetchMovieDetail(
         @Path("movie_id") movieId: Int,
         @Query("append_to_response") appendToResponse: String = "videos",
-        @Query("language") lang: String? = "en-US"
+        @Query("language") lang: String? = "en",
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieDetailResponse>
 
     @GET("3/tv/{tv_id}")
     suspend fun fetchTvShowDetail(
         @Path("tv_id") tvId: Int,
         @Query("append_to_response") appendToResponse: String = "videos",
-        @Query("language") lang: String? = "en-US"
+        @Query("language") lang: String? = "en",
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<TvShowDetailsResponse>
 
     @GET("3/trending/{media_type}/{time_window}")
     suspend fun fetchTrending(
         @Path("media_type") mediaType: String = "movie", // movie, tv, person, all
         @Path("time_window") timeWindow: String = "day", // day, week                       // day, week
-        @Query("language") lang: String? = "en-US",
-        @Query("page") page: Int = 1
+        @Query("language") lang: String? = "en",
+        @Query("page") page: Int = 1,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/movie/{movie_id}/similar")
     suspend fun fetchSimilarMovies(
         @Path("movie_id") movieId: Int,
-        @Query("language") lang: String? = "en-US",
-        @Query("page") page: Int = 1
+        @Query("language") lang: String? = "en",
+        @Query("page") page: Int = 1,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/tv/{tv_id}/similar")
     suspend fun fetchSimilarShows(
         @Path("tv_id") tvId: Int,
-        @Query("language") lang: String? = "en-US",
-        @Query("page") page: Int = 1
+        @Query("language") lang: String? = "en",
+        @Query("page") page: Int = 1,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/movie/{movie_id}/recommendations")
     suspend fun fetchRecommendedMovies(
         @Path("movie_id") movieId: Int,
-        @Query("language") lang: String? = "en-US",
-        @Query("page") page: Int = 1
+        @Query("language") lang: String? = "en",
+        @Query("page") page: Int = 1,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/tv/{tv_id}/recommendations")
     suspend fun fetchRecommendedTvShow(
         @Path("tv_id") tvId: Int,
-        @Query("language") lang: String? = "en-US",
-        @Query("page") page: Int = 1
+        @Query("language") lang: String? = "en",
+        @Query("page") page: Int = 1,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/search/movie")
@@ -121,10 +134,11 @@ interface TMDBApiServiceV3 {
 
     @GET("3/search/tv")
     suspend fun fetchTvSearchedResults(
-        @Query("language") lang: String? = "en-US",
+        @Query("language") lang: String? = "en",
         @Query("page") page: Int = 1,
         @Query("include_adult") includeAdult: Boolean = false,
-        @Query("query") searchQuery: String
+        @Query("query") searchQuery: String,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/tv/{tv_id}/season/{season_number}")
@@ -132,7 +146,8 @@ interface TMDBApiServiceV3 {
         @Path("tv_id") tvId: Int,
         @Path("season_number") seasonNumber: Int,
         @Query("append_to_response") appendToResponse: String = "videos",
-        @Query("language") lang: String? = "en-US"
+        @Query("language") lang: String? = "en",
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<TvSeasonDetailResponse>
 
     @GET("3/tv/{tv_id}/season/{season_number}/episode/{episode_number}")
@@ -141,7 +156,8 @@ interface TMDBApiServiceV3 {
         @Path("season_number") seasonNumber: Int,
         @Path("episode_number") episodeNumber: Int,
         @Query("append_to_response") appendToResponse: String = "videos",
-        @Query("language") lang: String? = "en-US"
+        @Query("language") lang: String? = "en",
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<TvEpisodeDetailResponse>
 
     @GET("3/discover/movie")
@@ -151,7 +167,8 @@ interface TMDBApiServiceV3 {
         @Query("sort_by") sortBy: String? = "popularity.desc",
         @Query("page") page: Int = 1,
         @Query("include_adult") includeAdult: Boolean = false,
-        @Query("language") lang: String? = "en-US"
+        @Query("language") lang: String? = "en",
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/discover/tv")
@@ -161,48 +178,54 @@ interface TMDBApiServiceV3 {
         // @Query("include_video") includeVideo: Boolean = false,
         @Query("page") page: Int = 1,
         @Query("include_adult") includeAdult: Boolean = false,
-        @Query("language") lang: String? = "en-US"
+        @Query("language") lang: String? = "en",
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/discover/tv")
     suspend fun fetchAnimeSeries(
         @Query("with_genres") genres: String = "16", // Animation genre = "16"
         @Query("sort_by") sortBy: String? = "popularity.desc",
-        @Query("first_air_date.gte") firstAirDateGreaterThan: String = "2010-01-01",
+        @Query("first_air_date.gte") firstAirDateGreaterThan: String = "2023-01-01",
         @Query("page") page: Int = 1,
-        @Query("language") lang: String? = "en-US",
+        @Query("language") lang: String? = "en",
         @Query("with_original_language") origLang: String = "en",
-        @Query("include_null_first_air_dates") include: Boolean = false
+        @Query("include_null_first_air_dates") include: Boolean = false,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/discover/movie")
     suspend fun fetchBollywoodMovies(
         @Query("sort_by") sortBy: String? = "popularity.desc",
-        @Query("primary_release_date.gte") releaseDateGreaterThan: String = "2012-08-01",
+        @Query("primary_release_date.gte") releaseDateGreaterThan: String = "2023-08-01",
         @Query("page") page: Int = 1,
         @Query("region") region: String = "IN",
         @Query("with_release_type") releaseType: String = "3|2",
-        @Query("watch_region") watchRegion: String = "IN",
+        @Query("watch_region") watchRegion: String = "GB",
         @Query("language") lang: String? = "hi-IN",
         @Query("with_original_language") origLang: String = "hi",
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MovieListResponse>
 
     @GET("3/movie/{movie_id}/credits")
     suspend fun fetchMovieCast(
         @Path("movie_id") movieId: Int,
-        @Query("language") lang: String? = "en-US"
+        @Query("language") lang: String? = "en",
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MediaCastResponse>
 
     @GET("3/tv/{tv_id}/credits")
     suspend fun fetchTvShowsCast(
         @Path("tv_id") tvId: Int,
-        @Query("language") lang: String? = "en-US"
+        @Query("language") lang: String? = "en",
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<MediaCastResponse>
 
     @GET("3/person/{person_id}/combined_credits")
     suspend fun fetchActorFilmography(
         @Path("person_id") personId: Int,
-        @Query("language") lang: String? = "en-US"
+        @Query("language") lang: String? = "en",
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY
     ): Response<ActorFilmography>
 
     // -------------------------------These Requests requires SESSION ID-----------------------------

@@ -29,9 +29,8 @@ android {
         buildConfigField(
             "String",
             "TMDB_API_KEY",
-            "\"${localProperties.getProperty("tmdb_api_key") ?: ""}\"" 
+            "\"${localProperties.getProperty("tmdb_api_key") ?: ""}\""
         )
-
 
         testInstrumentationRunner = libs.versions.androidTestInstrumentation.get()
     }

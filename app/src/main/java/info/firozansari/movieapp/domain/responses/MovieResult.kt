@@ -3,8 +3,6 @@ package info.firozansari.movieapp.domain.responses
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-// This class includes movie result + tv shows results
-
 @JsonClass(generateAdapter = true)
 data class MovieResult(
     @Json(name = "backdrop_path")

@@ -20,24 +20,43 @@ import info.firozansari.movieapp.presentation.Config.POPULAR_TV_SHOWS
 import info.firozansari.movieapp.presentation.Config.TOP_RATED_MOVIES
 import info.firozansari.movieapp.presentation.Config.TRENDING_MOVIES
 import info.firozansari.movieapp.presentation.Config.TRENDING_TV_SHOWS
+import info.firozansari.movieapp.presentation.tvdetail.TvDetailViewModel
 
 class MovieListViewModel @AssistedInject constructor(
     private val movieRepo: MoviesRepository,
+    @Assisted
+    private val mediaCategory: String
 ) : BaseViewModel(movieRepo) {
+
+    @AssistedFactory
+    interface MovieListViewModelFactory {
+        fun create(mediaCategory: String): MovieListViewModel
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    companion object {
+        fun providesFactory(
+            assistedFactory: MovieListViewModelFactory,
+            mediaCategory: String
+        ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return assistedFactory.create(mediaCategory) as T
+            }
+        }
+    }
 
     lateinit var categoryWiseMediaList: LiveData<PagingData<MovieResult>>
 
     init {
-//        when (mediaCategory) {
-//            TRENDING_MOVIES -> getTrendingMovies()
-//            TRENDING_TV_SHOWS -> getTrendingTvShows()
-//            NEWLY_LAUNCHED -> getNewlyLaunchedMovies()
-//            POPULAR_MOVIES -> getPopularMovies()
-//            POPULAR_TV_SHOWS -> getPopularTvShows()
-//            TOP_RATED_MOVIES -> getTopRatedMovies()
-//            ANIME_SERIES -> getAnimeSeries()
-//            BOLLYWOOD_MOVIES -> getBollywoodMovies()
-//        }
+       when (mediaCategory) {
+            TRENDING_MOVIES -> getTrendingMovies()
+            TRENDING_TV_SHOWS -> getTrendingTvShows()
+            NEWLY_LAUNCHED -> getNewlyLaunchedMovies()
+            POPULAR_MOVIES -> getPopularMovies()
+            POPULAR_TV_SHOWS -> getPopularTvShows()
+            TOP_RATED_MOVIES -> getTopRatedMovies()
+           else -> getTrendingMovies()
+        }
     }
 
     private fun getTrendingMovies() {
@@ -62,13 +81,5 @@ class MovieListViewModel @AssistedInject constructor(
 
     private fun getTopRatedMovies() {
         categoryWiseMediaList = movieRepo.fetchTopRatedMoviesPaging().cachedIn(viewModelScope)
-    }
-
-    private fun getAnimeSeries() {
-        categoryWiseMediaList = movieRepo.fetchAnimeSeriesPaging().cachedIn(viewModelScope)
-    }
-
-    private fun getBollywoodMovies() {
-        categoryWiseMediaList = movieRepo.fetchBollywoodMoviesPaging().cachedIn(viewModelScope)
     }
 }

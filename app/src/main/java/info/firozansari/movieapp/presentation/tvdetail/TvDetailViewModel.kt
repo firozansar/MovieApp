@@ -56,6 +56,7 @@ class TvDetailViewModel @AssistedInject constructor(
             TOP_RATED_MOVIES -> getTopRatedMovies()
             ANIME_SERIES -> getAnimeSeries()
             BOLLYWOOD_MOVIES -> getBollywoodMovies()
+            else -> getTrendingMovies()
         }
     }
 

@@ -53,8 +53,8 @@ class HomeViewModel @Inject constructor(
                 val popularMoviesListDef = async { movieRepo.fetchPopularMovies() }
                 val popularTvListDef = async { movieRepo.fetchPopularTvShows() }
                 val topRatedMoviesListDef = async { movieRepo.fetchTopRatedMovies() }
-                val animeSeriesDef = async { movieRepo.fetchAnimeSeries() }
-                val bollywoodDef = async { movieRepo.fetchBollywoodMovies() }
+                //val animeSeriesDef = async { movieRepo.fetchAnimeSeries() }
+                //val bollywoodDef = async { movieRepo.fetchBollywoodMovies() }
 
                 val wholeList = mutableListOf<HomeFeed>()
 
@@ -68,16 +68,16 @@ class HomeViewModel @Inject constructor(
                 // Top Rated
                 val topRatedMoviesList = topRatedMoviesListDef.await()
                 // Anime Series
-                val animeSeriesList = animeSeriesDef.await()
+                //val animeSeriesList = animeSeriesDef.await()
                 // Bollywood
-                val bollywoodList = bollywoodDef.await()
+                //val bollywoodList = bollywoodDef.await()
 
                 wholeList.add(HomeFeed(NEWLY_LAUNCHED, nowPlayingMoviesList.data!!.movieResults))
                 wholeList.add(HomeFeed(POPULAR_MOVIES, popularMoviesList.data!!.movieResults))
                 wholeList.add(HomeFeed(POPULAR_TV_SHOWS, popularTvList.data!!.movieResults))
                 wholeList.add(HomeFeed(TOP_RATED_MOVIES, topRatedMoviesList.data!!.movieResults))
-                wholeList.add(HomeFeed(ANIME_SERIES, animeSeriesList.data!!.movieResults))
-                wholeList.add(HomeFeed(BOLLYWOOD_MOVIES, bollywoodList.data!!.movieResults))
+//                wholeList.add(HomeFeed(ANIME_SERIES, animeSeriesList.data!!.movieResults))
+//                wholeList.add(HomeFeed(BOLLYWOOD_MOVIES, bollywoodList.data!!.movieResults))
 
                 _allFeedList.postValue(
                     Resource.Success(
@@ -96,7 +96,6 @@ class HomeViewModel @Inject constructor(
         } catch (throwable: Throwable) {
             when (throwable) {
                 is HttpException -> {
-                    // val code = e.code() HTTP Exception code
                     val errorResponse: TmdbErrorResponse? = convertErrorBody(throwable)
                     _allFeedList.postValue(
                         Resource.Error(
