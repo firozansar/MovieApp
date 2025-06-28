@@ -23,6 +23,30 @@ kotlinxCoroutinesTest = "1.10.2"
 material = "1.12.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
+spotless = "6.25.0"
+# Added versions for previously missing libraries
+androidxLifecycleExtensions = "2.2.0" # Note: deprecated
+androidxLifecycleCommonJava8 = "2.9.1" # Note: effectively part of lifecycle-runtime-ktx
+squareupRetrofit2ConverterGson = "3.0.0" # Same as retrofit
+googleCodeGson = "2.10.1"
+googleDaggerHiltAndroidTesting = "2.56" # Same as hiltAndroid
+androidxPagingRuntimeKtx = "3.3.0"
+androidxDatastorePreferences = "1.1.1"
+intuitSdp = "1.1.1"
+intuitSsp = "1.1.1"
+pierfrancescosoffrittiAndroidyoutubeplayerCore = "12.1.0"
+androidxBrowser = "1.8.0"
+githubZhpanvipViewpagerindicator = "1.2.1"
+androidxPaletteKtx = "1.0.0"
+jakewhartonTimber = "5.0.1"
+facebookStetho = "1.6.0"
+facebookStethoOkhttp3 = "1.6.0"
+googleTruth = "1.4.2"
+androidxTestCore = "1.6.1"
+robolectric = "4.13"
+androidxTestRules = "1.6.1"
+androidxSwiperefreshlayout = "1.1.0"
+
 
 #Testing versions
 androidTestInstrumentation = "androidx.test.runner.AndroidJUnitRunner"
@@ -54,6 +78,8 @@ lifecycle-compiler = { module = "androidx.lifecycle:lifecycle-compiler", version
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
 retrofit-coroutines-adapter = { module = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter", version.ref = "retrofitCoroutineAdapter" }
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "squareupRetrofit2ConverterGson" }
+google-code-gson = { module = "com.google.code.gson:gson", version.ref = "googleCodeGson" }
 httpLog = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "httpLog" }
 moshi = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
 moshiCodeGen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
@@ -87,6 +113,31 @@ mockitoKotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version
 # Mockito Android - For instrumented tests (androidTestImplementation)
 mockitoAndroid = { group = "org.mockito", name = "mockito-android", version.ref = "mockitoAndroid" }
 
+# Added library definitions
+androidx-lifecycle-extensions = { module = "androidx.lifecycle:lifecycle-extensions", version.ref = "androidxLifecycleExtensions" }
+androidx-lifecycle-common-java8 = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "androidxLifecycleCommonJava8" }
+google-dagger-hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "googleDaggerHiltAndroidTesting" }
+androidx-paging-runtime-ktx = { module = "androidx.paging:paging-runtime-ktx", version.ref = "androidxPagingRuntimeKtx" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "androidxDatastorePreferences" }
+intuit-sdp = { module = "com.intuit.sdp:sdp-android", version.ref = "intuitSdp" }
+intuit-ssp = { module = "com.intuit.ssp:ssp-android", version.ref = "intuitSsp" }
+pierfrancescosoffritti-androidyoutubeplayer-core = { module = "com.pierfrancescosoffritti.androidyoutubeplayer:core", version.ref = "pierfrancescosoffrittiAndroidyoutubeplayerCore" }
+androidx-browser = { module = "androidx.browser:browser", version.ref = "androidxBrowser" }
+github-zhpanvip-viewpagerindicator = { module = "com.github.zhpanvip:viewpagerindicator", version.ref = "githubZhpanvipViewpagerindicator" }
+androidx-palette-ktx = { module = "androidx.palette:palette-ktx", version.ref = "androidxPaletteKtx" }
+jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref = "jakewhartonTimber" }
+facebook-stetho = { module = "com.facebook.stetho:stetho", version.ref = "facebookStetho" }
+facebook-stetho-okhttp3 = { module = "com.facebook.stetho:stetho-okhttp3", version.ref = "facebookStethoOkhttp3" }
+google-truth = { module = "com.google.truth:truth", version.ref = "googleTruth" }
+androidx-test-core = { module = "androidx.test:core-ktx", version.ref = "androidxTestCore" } # core ktx for testing
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+androidx-test-rules = { module = "androidx.test:rules", version.ref = "androidxTestRules" }
+androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "androidxSwiperefreshlayout" }
+jetbrains-kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
+androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
+# Note: some original dependencies like libs.androidx.lifecycle.extensions, libs.androidx.lifecycle.common.java8 are deprecated
+# For hilt testing, kaptAndroidTest and kaptTest will use hilt-android-compiler
+
 
 # Android testing
 espressoCore = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoVersion" }
@@ -100,5 +151,10 @@ mockKAgentJvm = { module = "io.mockk:mockk-agent-jvm", version.ref = "mockKVersi
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+google-dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
+androidx-navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "nav" }
+diffplug-spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 
 
