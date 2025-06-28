@@ -555,11 +555,11 @@ class AccountFragment : Fragment() {
                 MEDIA_RATING_KEY to String.format("%.1f", movieResult.voteAverage)
             )
         )
-        safeFragmentNavigation(
-            navController = findNavController(),
-            currentFragmentId = R.id.navigation_account,
-            actionId = R.id.action_navigation_account_to_detailFragment
-        )
+//        safeFragmentNavigation(
+//            navController = findNavController(),
+//            currentFragmentId = R.id.navigation_account,
+//            actionId = R.id.action_navigation_account_to_detailFragment
+//        )
     }
 
     private fun checkLoginStatus() = viewLifecycleOwner.lifecycleScope.launchWhenCreated {

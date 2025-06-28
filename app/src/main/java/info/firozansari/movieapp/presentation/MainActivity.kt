@@ -32,8 +32,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { navContrl, destination, _ ->
 
             if (navContrl.previousBackStackEntry?.destination?.id == R.id.navigation_tv ||
-                navContrl.previousBackStackEntry?.destination?.id == R.id.navigation_search ||
-                navContrl.previousBackStackEntry?.destination?.id == R.id.navigation_account
+                navContrl.previousBackStackEntry?.destination?.id == R.id.navigation_search
             ) {
                 binding.bottomNavView.isVisible = destination.id != R.id.playerFragment
             }

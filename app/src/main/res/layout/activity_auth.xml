@@ -48,6 +48,8 @@
         android:layout_marginEnd="@dimen/_12sdp"
         android:layout_marginBottom="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/app_name"
         app:lb_btnColor="@color/colorPrimary"
         app:lb_btnDisabledColor="#cccccc"
         app:lb_btnRippleColor="#ffffff"
