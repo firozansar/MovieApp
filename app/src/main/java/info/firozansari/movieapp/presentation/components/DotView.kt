@@ -22,8 +22,8 @@ class DotView @JvmOverloads constructor(
         this.paint.color = color
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         val radius = width / 2f
-        canvas?.drawCircle(radius, radius, radius / 2, paint)
+        canvas.drawCircle(radius, radius, radius / 2, paint)
     }
 }

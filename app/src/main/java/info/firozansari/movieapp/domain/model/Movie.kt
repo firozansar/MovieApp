@@ -1,18 +1,19 @@
 package info.firozansari.movieapp.domain.model
 
+import android.annotation.SuppressLint
+import android.os.Parcel
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
 /**
  * This data class represents the Movie.
  * The annotations used was the Retrofit and Gson library.
  * @author Firoz Ansari
  */
+@SuppressLint("ParcelCreator")
 @Entity(tableName = "favorite_movies")
-@Parcelize
 open class Movie(
     @PrimaryKey(autoGenerate = true)
     @SerializedName("id")
@@ -30,4 +31,12 @@ open class Movie(
     val overview: String,
     val releaseDate: String,
     var isFavorite: Boolean = false
-) : Parcelable
+) : Parcelable {
+    override fun describeContents(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun writeToParcel(dest: Parcel, flags: Int) {
+        TODO("Not yet implemented")
+    }
+}

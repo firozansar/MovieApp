@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.google.dagger.hilt.android)
     alias(libs.plugins.androidx.navigation.safeargs.kotlin)
+    //alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.ksp)
 }
 
@@ -25,7 +26,11 @@ android {
 
         versionCode = 2
         versionName = "1.1"
-        buildConfigField("String", "TMDB_API_KEY", "\"${localProperties.getProperty("tmdb_api_key") ?: ""}\"")
+        buildConfigField(
+            "String",
+            "TMDB_API_KEY",
+            "\"${localProperties.getProperty("tmdb_api_key") ?: ""}\"" 
+        )
 
 
         testInstrumentationRunner = libs.versions.androidTestInstrumentation.get()
@@ -49,11 +54,9 @@ android {
     buildFeatures {
         dataBinding = true
         viewBinding = true
-    }
-
-    buildFeatures {
         buildConfig = true
     }
+
 //    sourceSets.configure {
 //        named("androidTest") {
 //            java.srcDirs("src/test-common/java")
@@ -130,9 +133,6 @@ dependencies {
 
     // Chrome Custom Tab
     implementation(libs.androidx.browser)
-
-    // Material Dot viewpager indicator library
-    implementation(libs.github.zhpanvip.viewpagerindicator)
 
     // Pallet
     implementation(libs.androidx.palette.ktx)

@@ -46,7 +46,6 @@ class AuthActivity : AppCompatActivity() {
 
     private fun initUI() = binding.apply {
         viewpagerAuth.adapter = IntroPagerAdapter()
-        dotsIndicator.setupWithViewPager(binding.viewpagerAuth)
         buttonSignIn.setOnClickListener { authViewModel.requestToken() }
 
         authViewModel.requestToken.observe(this@AuthActivity) { result: Resource<RequestTokenResponse> ->

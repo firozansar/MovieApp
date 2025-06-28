@@ -725,13 +725,21 @@ class LoadingButton @JvmOverloads constructor(
 
 private fun Animator.doOnEnd(action: (animator: Animator?) -> Unit) {
     this.addListener(object : Animator.AnimatorListener{
-        override fun onAnimationRepeat(animation: Animator?){}
+        override fun onAnimationStart(animation: Animator) {
+            TODO("Not yet implemented")
+        }
 
-        override fun onAnimationEnd(animation: Animator?) = action(animation)
+        override fun onAnimationEnd(animation: Animator) {
+            TODO("Not yet implemented")
+        }
 
-        override fun onAnimationCancel(animation: Animator?){}
+        override fun onAnimationCancel(animation: Animator) {
+            TODO("Not yet implemented")
+        }
 
-        override fun onAnimationStart(animation: Animator?){}
+        override fun onAnimationRepeat(animation: Animator) {
+            TODO("Not yet implemented")
+        }
     })
 }
 

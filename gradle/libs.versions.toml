@@ -36,7 +36,6 @@ intuitSdp = "1.1.1"
 intuitSsp = "1.1.1"
 pierfrancescosoffrittiAndroidyoutubeplayerCore = "12.1.0"
 androidxBrowser = "1.8.0"
-githubZhpanvipViewpagerindicator = "1.2.1"
 androidxPaletteKtx = "1.0.0"
 jakewhartonTimber = "5.0.1"
 facebookStetho = "1.6.0"
@@ -46,6 +45,7 @@ androidxTestCore = "1.6.1"
 robolectric = "4.13"
 androidxTestRules = "1.6.1"
 androidxSwiperefreshlayout = "1.1.0"
+percelize = "2.2.0"
 
 
 #Testing versions
@@ -123,7 +123,6 @@ intuit-sdp = { module = "com.intuit.sdp:sdp-android", version.ref = "intuitSdp" 
 intuit-ssp = { module = "com.intuit.ssp:ssp-android", version.ref = "intuitSsp" }
 pierfrancescosoffritti-androidyoutubeplayer-core = { module = "com.pierfrancescosoffritti.androidyoutubeplayer:core", version.ref = "pierfrancescosoffrittiAndroidyoutubeplayerCore" }
 androidx-browser = { module = "androidx.browser:browser", version.ref = "androidxBrowser" }
-github-zhpanvip-viewpagerindicator = { module = "com.github.zhpanvip:viewpagerindicator", version.ref = "githubZhpanvipViewpagerindicator" }
 androidx-palette-ktx = { module = "androidx.palette:palette-ktx", version.ref = "androidxPaletteKtx" }
 jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref = "jakewhartonTimber" }
 facebook-stetho = { module = "com.facebook.stetho:stetho", version.ref = "facebookStetho" }
@@ -155,6 +154,6 @@ kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 google-dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
 androidx-navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "nav" }
 diffplug-spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
-kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "percelize" }
 
 

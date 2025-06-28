@@ -1,6 +1,7 @@
 package info.firozansari.movieapp.presentation.tvlist
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -56,6 +57,9 @@ class TvListViewModel @AssistedInject constructor(
             TOP_RATED_MOVIES -> getTopRatedMovies()
             ANIME_SERIES -> getAnimeSeries()
             BOLLYWOOD_MOVIES -> getBollywoodMovies()
+            else -> categoryWiseMediaList = MutableLiveData<PagingData<MovieResult>>().apply {
+                value = PagingData.empty()
+            }
         }
     }
 
