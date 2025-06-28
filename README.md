@@ -1,6 +1,8 @@
 # Movie app
 A simple project using [The Movie DB](https://www.themoviedb.org) based on Kotlin MVVM architecture and material designs.<br>
 
+Currently going through a major refactoring to implement Clean Architecture and Compose UI. 
+
 <img src="static/Screenshot_2.png" width="500" />
 
 ## How to build on your environment
