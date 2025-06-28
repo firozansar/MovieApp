@@ -82,8 +82,13 @@ class MovieListFragment : Fragment() {
 
         adapter = MediaListPagerAdapter(
             onPosterClick = { movieResult ->
-                val bundle = bundleOf("mediaCategory" to movieResult.title)
-                navController.navigate(R.id.action_navigation_movies_to_movieDetailFragment, bundle)
+                {
+                    val bundle = bundleOf("movieId" to movieResult.id.toString())
+                    navController.navigate(
+                        R.id.action_navigation_movies_to_movieDetailFragment,
+                        bundle
+                    )
+                }
             }
         )
 

@@ -124,42 +124,42 @@ class TvDetailFragment : Fragment() {
             },
         )
 
-        binding.listRecyclerview.adapter = adapter.withLoadStateHeaderAndFooter(
-            footer = PagingStateAdapter { adapter.retry() },
-            header = PagingStateAdapter { adapter.retry() }
-        )
-        binding.listRecyclerview.setHasFixedSize(true)
-
-        adapter.addLoadStateListener {
-            when (it.refresh) {
-                is LoadState.NotLoading -> binding.apply {
-                    progressBar.isGone = true
-                    listRecyclerview.isGone = false
-                }
-
-                LoadState.Loading -> binding.apply {
-                    errorLayout.root.isGone = true
-                    progressBar.isGone = false
-                    listRecyclerview.isGone = true
-                }
-
-                is LoadState.Error -> binding.apply {
-                    progressBar.isGone = true
-                    errorLayout.root.isGone = false
-                    listRecyclerview.isGone = true
-                    val errorType: ErrorType =
-                        handleExceptions((it.refresh as LoadState.Error).error)
-                    if (errorType == ErrorType.NETWORK) {
-                        // Network problem
-                        errorLayout.statusTextTitle.text = "Connection Error"
-                        errorLayout.statusTextDesc.text = "Please check your internet connection"
-                    } else {
-                        // Http error or unknown
-                        errorLayout.statusTextTitle.text = "Oops.. Something went wrong"
-                        errorLayout.statusTextDesc.text = "Please try again"
-                    }
-                }
-            }
-        }
+//        binding.listRecyclerview.adapter = adapter.withLoadStateHeaderAndFooter(
+//            footer = PagingStateAdapter { adapter.retry() },
+//            header = PagingStateAdapter { adapter.retry() }
+//        )
+//        binding.listRecyclerview.setHasFixedSize(true)
+//
+//        adapter.addLoadStateListener {
+//            when (it.refresh) {
+//                is LoadState.NotLoading -> binding.apply {
+//                    progressBar.isGone = true
+//                    listRecyclerview.isGone = false
+//                }
+//
+//                LoadState.Loading -> binding.apply {
+//                    errorLayout.root.isGone = true
+//                    progressBar.isGone = false
+//                    listRecyclerview.isGone = true
+//                }
+//
+//                is LoadState.Error -> binding.apply {
+//                    progressBar.isGone = true
+//                    errorLayout.root.isGone = false
+//                    listRecyclerview.isGone = true
+//                    val errorType: ErrorType =
+//                        handleExceptions((it.refresh as LoadState.Error).error)
+//                    if (errorType == ErrorType.NETWORK) {
+//                        // Network problem
+//                        errorLayout.statusTextTitle.text = "Connection Error"
+//                        errorLayout.statusTextDesc.text = "Please check your internet connection"
+//                    } else {
+//                        // Http error or unknown
+//                        errorLayout.statusTextTitle.text = "Oops.. Something went wrong"
+//                        errorLayout.statusTextDesc.text = "Please try again"
+//                    }
+//                }
+//            }
+//        }
     }
 }
