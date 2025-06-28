@@ -1,9 +1,14 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+alias(libs.plugins.android.application)
+alias(libs.plugins.jetbrains.kotlin.android)
+alias(libs.plugins.google.dagger.hilt.android)
+alias(libs.plugins.androidx.navigation.safeargs)
+// For kotlin-kapt and kotlin-parcelize, they are typically applied differently
+// using the kotlin("kapt") and kotlin("plugin.parcelize") syntax
+// or ensuring the Kotlin Gradle plugin itself handles them.
+// We will keep them as they are if they don't have direct entries in libs.plugins
 apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: "org.jetbrains.kotlin.plugin.parcelize"
-apply plugin: "androidx.navigation.safeargs.kotlin"
+
 
 def localProperties = new Properties()
 def localPropertiesFile = project.rootProject.file('local.properties')
@@ -12,11 +17,11 @@ if (localPropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 35
 
     defaultConfig {
         applicationId "info.firozansari.movieapp"
-        targetSdkVersion 32
+        targetSdkVersion 35
         minSdkVersion 26
 
         versionCode 2
@@ -58,95 +63,95 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01"
-    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.google.android.material
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.swiperefreshlayout
+    implementation libs.jetbrains.kotlin.reflect
 
     // Navigation Component
-    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation libs.androidx.navigation.fragment.ktx
+    implementation libs.androidx.navigation.ui.ktx
 
     // Room components
-    implementation "androidx.room:room-runtime:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
-    implementation "androidx.room:room-ktx:$room_version"
-    androidTestImplementation "androidx.room:room-testing:$room_version"
+    implementation libs.androidx.room.runtime
+    kapt libs.androidx.room.compiler
+    implementation libs.androidx.room.ktx
+    androidTestImplementation libs.androidx.room.testing
 
     // Lifecycle components
-    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.5.0"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0"
+    implementation libs.androidx.lifecycle.extensions
+    implementation libs.androidx.lifecycle.common.java8
+    implementation libs.androidx.lifecycle.viewmodel.ktx
 
     //Networking
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofit_coroutines_adapter_version"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
-    implementation "com.google.code.gson:gson:2.9.0"
-    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
-    api "com.squareup.moshi:moshi:$moshi_version"
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+    implementation libs.squareup.retrofit2.retrofit
+    implementation libs.squareup.retrofit2.converter.gson
+    implementation libs.jakewharton.retrofit2.kotlin.coroutines.adapter
+    implementation libs.squareup.okhttp3.logging.interceptor
+    implementation libs.google.code.gson
+    implementation libs.squareup.retrofit2.converter.moshi
+    api libs.squareup.moshi
+    kapt libs.squareup.moshi.kotlin.codegen
 
     // Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version"
+    implementation libs.jetbrains.kotlinx.coroutines.core
+    implementation libs.jetbrains.kotlinx.coroutines.android
 
     // hilt
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
-    androidTestImplementation  "com.google.dagger:hilt-android-testing:$hilt_version"
-    kaptAndroidTest "com.google.dagger:hilt-compiler:$hilt_version"
-    testImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
-    kaptTest "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation libs.google.dagger.hilt.android
+    kapt libs.google.dagger.hilt.compiler
+    androidTestImplementation libs.google.dagger.hilt.android.testing
+    kaptAndroidTest libs.google.dagger.hilt.compiler
+    testImplementation libs.google.dagger.hilt.android.testing
+    kaptTest libs.google.dagger.hilt.compiler
 
-    // Moshi
-    api "com.squareup.moshi:moshi:$moshi_version"
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+    // Moshi (already declared with networking, but as per original file structure)
+    // api libs.squareup.moshi // Duplicate, already above
+    // kapt libs.squareup.moshi.kotlin.codegen // Duplicate, already above
 
     // Coil for image loading
-    implementation "io.coil-kt:coil:$coil_version"
+    implementation libs.coil.kt
 
     // Jetpack paging 3
-    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+    implementation libs.androidx.paging.runtime.ktx
 
     // JetPack DataStore
-    implementation "androidx.datastore:datastore-preferences:$datastore_version"
+    implementation libs.androidx.datastore.preferences
 
     // Intuit ssp & sdp
-    implementation "com.intuit.sdp:sdp-android:$intuit_version"
-    implementation "com.intuit.ssp:ssp-android:$intuit_version"
+    implementation libs.intuit.sdp
+    implementation libs.intuit.ssp
 
     // Android Youtube Player
-    implementation "com.pierfrancescosoffritti.androidyoutubeplayer:core:$youtube_version"
+    implementation libs.pierfrancescosoffritti.androidyoutubeplayer.core
 
     // Chrome Custom Tab
-    implementation "androidx.browser:browser:$chrome_custom_tab_version"
+    implementation libs.androidx.browser
 
     // Material Dot viewpager indicator library
-    implementation "com.github.zhpanvip:viewpagerindicator:$dot_indicator"
+    implementation libs.github.zhpanvip.viewpagerindicator
 
     // Pallet
-    implementation 'androidx.palette:palette-ktx:1.0.0'
+    implementation libs.androidx.palette.ktx
 
     // debugging
-    implementation "com.jakewharton.timber:timber:$timber_version"
-    implementation "com.facebook.stetho:stetho:$stetho_version"
-    implementation "com.facebook.stetho:stetho-okhttp3:$stetho_version"
+    implementation libs.jakewharton.timber
+    implementation libs.facebook.stetho
+    implementation libs.facebook.stetho.okhttp3
 
-    testImplementation("junit:junit:4.12")
-    testImplementation("com.google.truth:truth:0.42")
-    testImplementation("androidx.test:core:1.2.0")
-    testImplementation("org.mockito:mockito-core:2.27.0")
+    testImplementation libs.junit
+    testImplementation libs.google.truth
+    testImplementation libs.androidx.test.core
+    testImplementation libs.mockito.core // General mockito
 
-    testImplementation "org.robolectric:robolectric:$robolectric_version"
+    testImplementation libs.robolectric // Uses robolectric version
 
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
-    androidTestImplementation("androidx.test.ext:junit:1.1.1")
-    androidTestImplementation("androidx.test:rules:1.2.0")
-    androidTestImplementation("com.google.truth:truth:0.42")
+    androidTestImplementation libs.androidx.test.espresso.core
+    androidTestImplementation libs.androidx.test.ext.junit
+    androidTestImplementation libs.androidx.test.rules
+    androidTestImplementation libs.google.truth // Already defined for testImplementation
 }
 
 apply from: '../spotless.gradle'
