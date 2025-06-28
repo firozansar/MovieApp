@@ -47,7 +47,7 @@ class MovieDetailFragment : Fragment() {
     private val viewModel: MovieDetailViewModel by viewModels {
         MovieDetailViewModel.providesFactory(
             assistedFactory = movieDetailViewModelFactory,
-            mediaCategory = args.mediaCategory
+            movieId = args.movieId
         )
     }
 
@@ -65,7 +65,7 @@ class MovieDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
-        binding.toolbar.title = args.mediaCategory
+        binding.toolbar.title = "Movie Detail"
         setUpRecyclerViewAndNav()
 
         viewModel.categoryWiseMediaList.observe(viewLifecycleOwner) {

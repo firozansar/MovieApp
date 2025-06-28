@@ -51,7 +51,7 @@
                     android:layout_weight="1"
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/_16ssp"
-                    tools:text="Haid-Faiz" />
+                    tools:text="Firoz" />
 
                 <ImageView
                     android:id="@+id/log_out_btn"
