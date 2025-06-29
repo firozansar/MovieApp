@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+  <issue id="InvalidPackage">
+    <ignore regexp=".*okio.*"/>
+    <ignore regexp=".*retrofit.*"/>
+  </issue>
+   <issue id="all">
+        <ignore path="src/androidTest" />
+    </issue>
+  <!-- Ignore the MissingTranslation check in the entire project -->
+  <issue id="MissingTranslation" severity="ignore" />
+
+  <!-- Raise the severity of a specific check -->
+  <issue id="NewApi" severity="error" />
+
+  <!-- Apply a configuration to a specific folder -->
+  <issue id="IconMissingDensityFolder" severity="error">
+      <ignore path="res/drawable" />
+  </issue>
+</lint>

@@ -56,14 +56,20 @@ android {
         buildConfig = true
     }
 
-//    sourceSets.configure {
-//        named("androidTest") {
-//            java.srcDirs("src/test-common/java")
-//        }
-//        named("test") {
-//            java.srcDirs("src/test-common/java")
-//        }
-//    }
+    testOptions {
+        unitTests {
+            isReturnDefaultValues = true
+        }
+    }
+
+    lint {
+        abortOnError = false
+        xmlReport = true
+        htmlReport = true
+        checkReleaseBuilds = false
+        ignoreWarnings = true
+        lintConfig = file("lint.xml")
+    }
 }
 
 dependencies {
