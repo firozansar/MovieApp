@@ -143,11 +143,12 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation(libs.google.truth)
-    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.androidx.core.testing)
     testImplementation(libs.mockitoCore)
     testImplementation(libs.kotlinxCoroutinesTest)
 
     testImplementation(libs.robolectric)
+    testImplementation(libs.mockwebserver)
 
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
