@@ -145,6 +145,7 @@ dependencies {
     testImplementation(libs.google.truth)
     testImplementation(libs.androidx.test.core)
     testImplementation(libs.mockitoCore)
+    testImplementation(libs.kotlinxCoroutinesTest)
 
     testImplementation(libs.robolectric)
 
